@@ -75,7 +75,7 @@ Zgornjetrikoten sistem ima ničle pod glavno diagonalo matrike.
 
 Potrebno je \( \frac{n(n+1)}{2} \) operacij za reševanje zgornjetrikotnega sistema.
 
-### 6. Uporaba LU razcepa za reševanje linearnega sistema \(Ax = b\)
+#### (6) Uporaba LU razcepa za reševanje linearnega sistema \(Ax = b\)
 
 Za reševanje sistema \(Ax = b\) s pomočjo LU razcepa najprej razcepimo matriko \(A\) na produkt \(LU\), kjer je \(L\) spodnjetrikotna matrika, \(U\) pa zgornjetrikotna matrika. Reševanje sistema poteka v dveh korakih:
 
@@ -84,7 +84,7 @@ Za reševanje sistema \(Ax = b\) s pomočjo LU razcepa najprej razcepimo matriko
 
 Za celoten postopek je potrebno \(n^2\) operacij za vsako substitucijo, skupaj torej \(2n^2\) operacij.
 
-### 7. LU razcep z delnim pivotiranjem
+#### (7) LU razcep z delnim pivotiranjem
 
 **Delni pivot** pri LU razcepu vključuje izbiro največjega elementa v stolpcu kot pivot, da se izogne težavam z numerično stabilnostjo. Postopek izračuna:
 
@@ -94,15 +94,13 @@ Za celoten postopek je potrebno \(n^2\) operacij za vsako substitucijo, skupaj t
 
 Za reševanje \(Ax = b\) s to metodo najprej izračunamo \(Ly = Pb\) (kjer je \(P\) permutacijska matrika zaradi pivotiranja), nato rešimo \(Ux = y\). Skupaj potrebujemo približno \(2n^3/3\) operacij za razcep in \(2n^2\) za substituciji.
 
-### 8. LU razcep s kompletnim pivotiranjem
+#### (8) LU razcep s kompletnim pivotiranjem
 
 LU razcep s **kompletnim pivotiranjem** vključuje izbiro največjega elementa iz celotne preostale matrike (ne samo stolpca) za pivotiranje. Čeprav je ta metoda zelo stabilna, se redko uporablja zaradi visoke računske zahtevnosti, ki lahko bistveno upočasni postopek, še posebej pri velikih matrikah.
 
-### 9. Stabilnost reševanja zgornjetrikotnega sistema z obratno/premo substitucijo
+#### (9) Stabilnost reševanja zgornjetrikotnega sistema z obratno/premo substitucijo
 
 Stabilnost reševanja zgornjetrikotnega sistema z **obratno substitucijo** je običajno visoka, saj postopek naravno preprečuje deljenje z zelo majhnimi števili, razen če je zgornjetrikotna matrika slabo pogojena. V primeru spodnjetrikotnih sistemov, kjer uporabimo premo substitucijo, je tudi stabilnost običajno dobra, razen v primerih slabo pogojenih matrik ali zelo majhnih diagonalnih elementov.
-
-### Dodatna vprašanja in odgovori o numeričnih metodah
 
 #### (10) Kaj je pivotna rast?
 
@@ -178,21 +176,21 @@ kjer \( A^+ \) minimizira \( \|Ax - b\| \).
 
 Stabilnost rešitve predoločenega sistema je odvisna od pogojenosti matrike \( A \). Če je matrika slabo pogojena (visoko pogojenostno število), so lahko rešitve nestabilne in močno občutljive na majhne spremembe v podatkih ali napake v izračunu.
 
-#### 6. QR razcep matrike A in njegova uporaba
+#### (6) QR razcep matrike A in njegova uporaba
 
 QR razcep je razgradnja matrike \( A \) na produkt dveh matrik \( Q \) in \( R \), kjer je \( Q \) ortogonalna matrika in \( R \) zgornje trikotna matrika. Za rešitev predoločenega sistema \( Ax = b \) po metodi najmanjših kvadratov uporabimo:
 \[ R x = Q^T b \]
 Najprej izračunamo \( Q^T b \), nato pa rešimo sistem \( Rx = Q^T b \) z obratno substitucijo.
 
-#### 7. Klasična in modificirana Gram-Schmidtova ortogonalizacija
+#### (7) Klasična in modificirana Gram-Schmidtova ortogonalizacija
 
 **Klasična Gram-Schmidtova ortogonalizacija** je proces, pri katerem iz danega sistema vektorjev ustvarimo ortogonalni sistem s projekcijami vektorjev na ortogonalni komplement predhodno obravnavanih vektorjev. **Modificirana Gram-Schmidtova ortogonalizacija** izboljša numerično stabilnost klasične metode tako, da ortogonalizira vsak vektor z vsemi že ortogonaliziranimi vektorji takoj, ko je ta generiran, kar zmanjšuje akumulacijo numeričnih napak.
 
-#### 8. Householderjeva zrcaljenja za izračun QR razcepa
+#### (8) Householderjeva zrcaljenja za izračun QR razcepa
 
 Householderjeva zrcaljenja so transformacije, ki se uporabljajo za postopno pretvorbo matrike v zgornje trikotno obliko \( R \) z uporabo ortogonalnih transformacij, ki odražajo vektorje okoli izbrane hiperravnine. Postopek začne z levo stranjo matrike in progresivno ustvarja zgornje trikotne elemente, pri čemer vsako zrcaljenje izniči elemente pod diagonalno.
 
-#### 9. Givensove rotacije za izračun QR razcepa
+#### (9) Givensove rotacije za izračun QR razcepa
 
 Givensove rotacije so krožne transformacije, ki se uporabljajo za postopno uvajanje ničel v matriko z rotacijo vrstic ali stolpcev. Givensove rotacije so posebej ugodne pri redkih matrikah, kjer Householderjeva zrcaljenja lahko povzročijo povečanje gostote ničel, kar poveča računsko zahtevnost. Pri Givensovih rotacijah se vsaka rotacija nanaša lokalno, zato je izogibanje širjenju ničel učinkovitejše in ohranja redkost matrike.
 
@@ -246,17 +244,17 @@ Sekantna metoda je podobna tangentni metodi, vendar ne zahteva odvoda funkcije. 
 \[ x*{n+1} = x_n - f(x_n) \frac{x_n - x*{n-1}}{f(x*n) - f(x*{n-1})} \]
 Red konvergence sekantne metode je superlinearen, približno \(1.618\) (zlato razmerje), kar je hitrejše od linearne konvergence, vendar počasnejše od kvadratične.
 
-#### 6. Izpeljava in opis metode regula falsi
+#### (6) Izpeljava in opis metode regula falsi
 
 Metoda regula falsi (metoda lažne pozicije) je iterativna tehnika za iskanje ničel funkcije, ki se podobno kot bisekcija osredotoča na interval, kjer funkcija spreminja predznak. Metoda uporablja linearno interpolacijo med končnima točkama intervala in izbere ničlo linearne interpolacije kot naslednji približek. Iteracija poteka po formuli:
 \[ x*{n+1} = x_n - f(x_n) \frac{x*{n} - x*{n-1}}{f(x_n) - f(x*{n-1})} \]
 kjer \( x*n \) in \( x*{n-1} \) sta zadnji dve oceni ničle.
 
-#### 7. Fiksne točke iteracijske funkcije \( g \)
+#### (7) Fiksne točke iteracijske funkcije \( g \)
 
 Fiksna točka funkcije \( g \) je vrednost \( x \), za katero velja \( g(x) = x \). Fiksne točke so **privlačne**, če je absolutna vrednost odvoda \( g' \) pri \( x \) manjša od 1 (\(|g'(x)| < 1\)), saj približki konvergirajo k fiksni točki. So **odbojne**, če je \( |g'(x)| > 1 \), kar povzroči divergenco od fiksne točke.
 
-#### 8. Navadna iteracija za iskanje ničel funkcije \( f \)
+#### (8) Navadna iteracija za iskanje ničel funkcije \( f \)
 
 Navadna iteracija za iskanje ničle funkcije \( f \) lahko poteka s transformacijo \( x\_{n+1} = g(x_n) \), kjer je \( g(x) \) neka funkcija, izpeljana iz \( f \). Hitrost konvergence je:
 
@@ -264,16 +262,16 @@ Navadna iteracija za iskanje ničle funkcije \( f \) lahko poteka s transformaci
 - **Kvadratična**, če je \( g'(x) = 0 \) pri fiksni točki.
 - **Kubična**, če so izpolnjeni pogoji višjih odvodov.
 
-#### 9. Iteracijske metode za reševanje nelinearnih enačb
+#### (9) Iteracijske metode za reševanje nelinearnih enačb
 
 Ena od priljubljenih metod je **Newtonova metoda** za reševanje nelinearnih enačb, ki iterativno izboljšuje približke z uporabo tangent k funkciji \( f \), izračunanih z odvodom \( f \). Formula za iteracijo je:
 \[ x\_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \]
 
-#### 10. Kvazi-Newtonove metode
+#### (10) Kvazi-Newtonove metode
 
 Kvazi-Newtonove metode so razred metod za reševanje nelinearnih enačb, ki poskušajo ohraniti prednosti Newtonove metode, vendar brez potrebe po natančnem izračunu drugega odvoda (Hessejeve matrike). **Metoda BFGS** je ena izmed teh, ki uporablja približke za inverz Hessejeve matrike za pospešitev konvergence.
 
-#### 11. Povezava med reševanjem enačb in optimizacijo
+#### (11) Povezava med reševanjem enačb in optimizacijo
 
 Reševanje sistemov enačb je tesno povezano z optimizacijo, saj iskanje ničel gradienta optimizacijske funkcije neposredno ustreza reševanju nelinearnih enačb. Tehnike, kot so Newtonova in kvazi-Newtonova metoda, se pogosto uporabljajo tako za iskanje ničel enačb kot za iskanje ekstremov funkcij.
 
@@ -342,7 +340,7 @@ Pravi korak \(h\) v trapeznem pravilu določimo glede na želeno natančnost in 
 
 Adaptivno trapezno pravilo samodejno prilagaja korak \(h\) med izračunom integrala za doseganje želene natančnosti. Pravilo oceni napako v trenutnem koraku in, če je napaka prevelika, zmanjša korak, če pa je napaka majhna, poveča korak za naslednje segmente, s čimer optimizira celotno računsko delo.
 
-#### 6. Rombergova metoda
+#### (6) Rombergova metoda
 
 Rombergova metoda je tehnika za izboljšanje natančnosti numeričnih integracij, ki izhaja iz trapeznega pravila. **Osnovni princip** je uporaba Richardsonove ekstrapolacije za zaporedne približke integrala, ki so izračunani z vedno manjšimi koraki. Začnemo s trapeznim pravilom za grob korak, nato korak postopoma polovimo in izračunamo nove približke. Ti približki se nato kombinirajo za izboljšanje natančnosti.
 
@@ -352,17 +350,17 @@ Rombergova metoda je tehnika za izboljšanje natančnosti numeričnih integracij
 2. Polovi korak in ponovi izračun.
 3. Uporabi Richardsonovo ekstrapolacijo za izboljšanje ocene integrala.
 
-#### 7. Vozli in uteži v kvadraturnem pravilu; prednosti Gaussove kvadrature
+#### (7) Vozli in uteži v kvadraturnem pravilu; prednosti Gaussove kvadrature
 
 Vozli v kvadraturnem pravilu so točke, v katerih funkcijo ovrednotimo, uteži pa so koeficienti, s katerimi pomnožimo vrednosti funkcije za izračun integrala. **Gaussova kvadraturna pravila** so učinkovitejša od Newton-Cottesovih pravil, ker izbirajo optimalne vozle in uteži, ki maksimizirajo stopnjo točnosti za dane vozle. To pomeni, da lahko Gaussova pravila z manjšim številom vozlov dosežejo višjo natančnost kot ekvivalentna Newton-Cottesova pravila.
 
-#### 8. Numerični izračun dvojnega integrala na pravokotniku
+#### (8) Numerični izračun dvojnega integrala na pravokotniku
 
 Dvojni integral na pravokotniku se običajno izračuna z iteriranjem enodimenzionalnega integracijskega pravila (npr. trapeznega ali Simpsonovega) najprej v eni smeri in nato v drugi. Izračunamo:
 \[ \int*{a}^{b} \int*{c}^{d} f(x,y) \, dx \, dy \]
 kjer najprej integriramo po \( x \) za fiksni \( y \), nato rezultate integriramo po \( y \).
 
-#### 9. Numerični izračun večkratnih integralov na poljubnem območju
+#### (9) Numerični izračun večkratnih integralov na poljubnem območju
 
 Za večkratne integrale na kompleksnih območjih se pogosto uporabljajo metode, kot so Monte Carlo ali adaptivne kvadraturne metode, ki se prilagajajo obliki območja. Napaka pri teh metodah je odvisna od števila uporabljenih točk in metode integracije. Računska zahtevnost za doseganje napake \( \epsilon \) narašča s kompleksnostjo območja in dimenzijo integrala.
 
