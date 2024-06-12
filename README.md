@@ -23,25 +23,25 @@ Relativno direktno stabilna metoda zagotavlja, da majhne spremembe v vhodnih pod
 
 #### (1) Zapišite splošen kvadraten sistem linearnih enačb in ga prepišite v matrično obliko.
 
-Splošen kvadraten sistem linearnih enačb zapisujemo kot \( Ax = b \), kjer je:
+Splošen kvadraten sistem linearnih enačb zapisujemo kot $Ax = b$, kjer je:
 
-- \( A \) matrika koeficientov velikosti \( n \times n \),
-- \( x \) vektor neznank,
-- \( b \) vektor konstant.
+- $A$ matrika koeficientov velikosti $n \times n$,
+- $x$ vektor neznank,
+- $b$ vektor konstant.
 
 **Resljivost:**
 
-- Sistem je **enolično rešljiv**, če je determinanta matrike \( A \) neničelna.
-- Sistem ni rešljiv ali ima neskončno mnogo rešitev, če je determinanta matrike \( A \) enaka nič.
+- Sistem je **enolično rešljiv**, če je determinanta matrike $A$ neničelna.
+- Sistem ni rešljiv ali ima neskončno mnogo rešitev, če je determinanta matrike $A$ enaka nič.
 
 **Število operacij:**
 
-- Produkt matrike z vektorjem zahteva \( n^2 \) operacij.
-- Produkt dveh matrik \( n \times n \) zahteva \( n^3 \) operacij.
+- Produkt matrike z vektorjem zahteva $n^2$ operacij.
+- Produkt dveh matrik $n \times n$ zahteva $n^3$ operacij.
 
 #### (2) Kaj je Gaussova eliminacija?
 
-Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je približno \( \frac{2}{3}n^3 \) osnovnih računskih operacij za izvedbo.
+Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je približno $\frac{2}{3}n^3$ osnovnih računskih operacij za izvedbo.
 
 #### (3) Opis elementarnih eliminacij
 
@@ -54,15 +54,17 @@ Elementarne eliminacije vključujejo vrstične operacije kot so zamenjava, množ
 
 #### (4) Kaj je LU razcep matrike A brez pivotiranja?
 
-LU razcep brez pivotiranja razdeli matriko \( A \) na produkt spodnje trikotne matrike \( L \) in zgornje trikotne matrike \( U \). Izračun zahteva približno \( \frac{1}{3}n^3 \) operacij. Obstaja, če so vsi glavni minori matrike \( A \) neničelni.
+LU razcep brez pivotiranja razdeli matriko $A$ na produkt spodnje trikotne matrike $L$ in zgornje trikotne matrike $U$. Izračun zahteva približno $\frac{1}{3}n^3$ operacij. Obstaja, če so vsi glavni minori matrike $A$ neničelni.
 
-**Primer, kjer LU razcep brez pivotiranja ni možen:**
-Matrika:
-\[ A = \begin{bmatrix}
+Primer, kjer LU razcep brez pivotiranja ni možen: Matrika:
+```math
+\begin{bmatrix}
 0 & 1 \\
-1 & 1 \\
-\end{bmatrix} \]
-ne omogoča LU razcepa brez pivotiranja zaradi ničelnega elementa na mestu \( a\_{11} \).
+1 & 1 \
+\end{bmatrix}
+```
+ne omogoča LU razcepa brez pivotiranja zaradi ničelnega elementa na mestu $a_{11}$.
+
 
 #### (5) Kaj je zgornjetrikoten sistem linearnih enačb?
 
@@ -73,16 +75,16 @@ Zgornjetrikoten sistem ima ničle pod glavno diagonalo matrike.
 - **Premo substitucija** se ne uporablja; relevantna je le za spodnjetrikotne sisteme.
 - **Obratna substitucija** se uporablja za reševanje zgornjetrikotnega sistema, začenši z zadnjo enačbo.
 
-Potrebno je \( \frac{n(n+1)}{2} \) operacij za reševanje zgornjetrikotnega sistema.
+Potrebno je $\frac{n(n+1)}{2}$ operacij za reševanje zgornjetrikotnega sistema.
 
-#### (6) Uporaba LU razcepa za reševanje linearnega sistema \(Ax = b\)
+#### (6) Uporaba LU razcepa za reševanje linearnega sistema $Ax = b$
 
-Za reševanje sistema \(Ax = b\) s pomočjo LU razcepa najprej razcepimo matriko \(A\) na produkt \(LU\), kjer je \(L\) spodnjetrikotna matrika, \(U\) pa zgornjetrikotna matrika. Reševanje sistema poteka v dveh korakih:
+Za reševanje sistema $Ax = b$ s pomočjo LU razcepa najprej razcepimo matriko $A$ na produkt $LU$, kjer je $L$ spodnjetrikotna matrika, $U$ pa zgornjetrikotna matrika. Reševanje sistema poteka v dveh korakih:
 
-1. Rešimo \(Ly = b\) za \(y\) z uporabo premega vstavljanja.
-2. Rešimo \(Ux = y\) za \(x\) z uporabo obratnega vstavljanja.
+1. Rešimo $Ly = b$ za $y$ z uporabo premega vstavljanja.
+2. Rešimo $Ux = y$ za $x$ z uporabo obratnega vstavljanja.
 
-Za celoten postopek je potrebno \(n^2\) operacij za vsako substitucijo, skupaj torej \(2n^2\) operacij.
+Za celoten postopek je potrebno $n^2$ operacij za vsako substitucijo, skupaj torej $2n^2$ operacij.
 
 #### (7) LU razcep z delnim pivotiranjem
 
@@ -92,7 +94,8 @@ Za celoten postopek je potrebno \(n^2\) operacij za vsako substitucijo, skupaj t
 2. Zamenjamo trenutno vrstico z vrstico, ki vsebuje največji element.
 3. Nadaljujemo z razcepom kot pri standardnem LU razcepu.
 
-Za reševanje \(Ax = b\) s to metodo najprej izračunamo \(Ly = Pb\) (kjer je \(P\) permutacijska matrika zaradi pivotiranja), nato rešimo \(Ux = y\). Skupaj potrebujemo približno \(2n^3/3\) operacij za razcep in \(2n^2\) za substituciji.
+Za reševanje $Ax = b$ s to metodo najprej izračunamo $Ly = Pb$ (kjer je $P$ permutacijska matrika zaradi pivotiranja), nato rešimo $Ux = y$. Skupaj potrebujemo približno $\frac{2n^3}{3}$ operacij za razcep in $2n^2$ za substituciji.
+
 
 #### (8) LU razcep s kompletnim pivotiranjem
 
@@ -114,16 +117,18 @@ Pivotna rast je merilo za povečanje elementov matrike med LU razcepom s pivotir
 
 #### (12) Razcep Choleskega matrike
 
-Razcep Choleskega se uporablja za simetrične, pozitivno definitne matrike, kjer matriko \(A\) razdelimo na \(A = LL^T\), kjer je \(L\) spodnjetrikotna matrika. Ta razcep je običajno bolj stabilen in manj računsko zahteven v primerjavi z LU razcepom.
+Razcep Choleskega se uporablja za simetrične, pozitivno definitne matrike, kjer matriko $A$ razdelimo na $A = LL^T$, kjer je $L$ spodnjetrikotna matrika. Ta razcep je običajno bolj stabilen in manj računsko zahteven v primerjavi z LU razcepom.
+
 
 #### (13) Kaj je vektorska norma?
 
 Vektorska norma meri velikost ali dolžino vektorja. Primeri:
 
-- Evklidska norma \( \|x\|\_2 \)
-- Maksimalna norma \( \|x\|\_\infty \)
-- Manhattan norma \( \|x\|\_1 \)
-  Uporabljajo se za oceno velikosti napak, konvergenco algoritmov in stabilnost sistemov.
+- Evklidska norma $\|x\|_2$
+- Maksimalna norma $\|x\|_\infty$
+- Manhattan norma $\|x\|_1$
+
+Uporabljajo se za oceno velikosti napak, konvergenco algoritmov in stabilnost sistemov.
 
 #### (14) Kaj je matrična norma?
 
@@ -146,41 +151,43 @@ Primer iterativne metode je **metoda konjugiranih gradientov**, ki se uporablja 
 #### (1) Kaj je predoločen sistem enačb? Napišite primer. Kaj je rešitev predoločenega sistema po metodi najmanjših kvadratov?
 
 Predoločen sistem enačb ima več enačb kot neznank. Primer takšnega sistema:
-\[ 2x + 3y = 5 \]
-\[ x - y = 2 \]
-\[ 4x + y = 7 \]
-Rešitev predoločenega sistema z metodo najmanjših kvadratov je tista, ki minimizira vsoto kvadratov razlik med dejanskimi izidi in napovedmi modela (minimizacija \( \|Ax - b\|^2 \)).
+- $2x + 3y = 5$
+- $x - y = 2$
+- $4x + y = 7$
+
+Rešitev predoločenega sistema z metodo najmanjših kvadratov je tista, ki minimizira vsoto kvadratov razlik med dejanskimi izidi in napovedmi modela (minimizacija $\|Ax - b\|^2$).
 
 #### (2) Zapišite predoločen sistem enačb, ki določa regresijsko premico za podatke (xi, yi), i = 1, 2, ..., m.
 
 Sistem za linearno regresijo:
-\[ a x_1 + b = y_1 \]
-\[ a x_2 + b = y_2 \]
-\[ \vdots \]
-\[ a x_m + b = y_m \]
-Rešitev tega sistema daje koeficiente \(a\) (naklon) in \(b\) (presek z osjo y) regresijske premice, ki najbolje ustreza danim točkam v smislu metode najmanjših kvadratov.
+- $ax_1 + b = y_1$
+- $ax_2 + b = y_2$
+- $\vdots$
+- $ax_m + b = y_m$
+
+Rešitev tega sistema daje koeficiente $a$ (naklon) in $b$ (presek z osjo y) regresijske premice, ki najbolje ustreza danim točkam v smislu metode najmanjših kvadratov.
 
 #### (3) Kako izračunamo rešitev predoločenega sistema preko normalnega sistema?
 
 Rešitev predoločenega sistema preko normalnega sistema se izračuna z:
-\[ A^T Ax = A^T b \]
-kjer \( A^T \) je transponirana matrika \( A \), in \( x \) je vektor neznank. Rešujemo za \( x \), ki minimizira kvadrat napake.
+$A^T Ax = A^T b$
+kjer $A^T$ je transponirana matrika $A$, in $x$ je vektor neznank. Rešujemo za $x$, ki minimizira kvadrat napake.
 
 #### (4) Kaj je Moore-Penroseov inverz matrike in kako se z njim izraža rešitev predoločenega sistema po metodi najmanjših kvadratov?
 
-Moore-Penroseov inverz, označen z \( A^+ \), je splošnitev inverza na matrike, ki niso kvadratne ali so singularne. Uporablja se za izračun rešitve najmanjših kvadratov predoločenega sistema z:
-\[ x = A^+ b \]
-kjer \( A^+ \) minimizira \( \|Ax - b\| \).
+Moore-Penroseov inverz, označen z $A^+$, je splošnitev inverza na matrike, ki niso kvadratne ali so singularne. Uporablja se za izračun rešitve najmanjših kvadratov predoločenega sistema z:
+$x = A^+ b$
+kjer $A^+$ minimizira $\|Ax - b\|$.
 
 #### (5) Kaj lahko poveste o stabilnosti rešitve predoločenega sistema?
 
-Stabilnost rešitve predoločenega sistema je odvisna od pogojenosti matrike \( A \). Če je matrika slabo pogojena (visoko pogojenostno število), so lahko rešitve nestabilne in močno občutljive na majhne spremembe v podatkih ali napake v izračunu.
+Stabilnost rešitve predoločenega sistema je odvisna od pogojenosti matrike $A$. Če je matrika slabo pogojena (visoko pogojenostno število), so lahko rešitve nestabilne in močno občutljive na majhne spremembe v podatkih ali napake v izračunu.
 
 #### (6) QR razcep matrike A in njegova uporaba
 
-QR razcep je razgradnja matrike \( A \) na produkt dveh matrik \( Q \) in \( R \), kjer je \( Q \) ortogonalna matrika in \( R \) zgornje trikotna matrika. Za rešitev predoločenega sistema \( Ax = b \) po metodi najmanjših kvadratov uporabimo:
-\[ R x = Q^T b \]
-Najprej izračunamo \( Q^T b \), nato pa rešimo sistem \( Rx = Q^T b \) z obratno substitucijo.
+QR razcep je razgradnja matrike $A$ na produkt dveh matrik $Q$ in $R$, kjer je $Q$ ortogonalna matrika in $R$ zgornje trikotna matrika. Za rešitev predoločenega sistema $Ax = b$ po metodi najmanjših kvadratov uporabimo:
+$R x = Q^T b$
+Najprej izračunamo $Q^T b$, nato pa rešimo sistem $Rx = Q^T b$ z obratno substitucijo.
 
 #### (7) Klasična in modificirana Gram-Schmidtova ortogonalizacija
 
@@ -202,15 +209,15 @@ Dominantna lastna vrednost je tista lastna vrednost matrike, ki ima največjo ab
 
 #### (2) Kaj je inverzna iteracija in zakaj se uporablja?
 
-Inverzna iteracija je metoda za iskanje lastnih vrednosti blizu predhodno določene vrednosti \( \mu \). Ta metoda temelji na iteraciji z inverzom \( (A - \mu I)^{-1} \) in se uporablja za iskanje lastnih vrednosti, ki so natančno določene ali blizu specifične ciljne vrednosti, saj konvergira hitreje za lastne vrednosti blizu \( \mu \).
+Inverzna iteracija je metoda za iskanje lastnih vrednosti blizu predhodno določene vrednosti $\mu$. Ta metoda temelji na iteraciji z inverzom $(A - \mu I)^{-1}$ in se uporablja za iskanje lastnih vrednosti, ki so natančno določene ali blizu specifične ciljne vrednosti, saj konvergira hitreje za lastne vrednosti blizu $\mu$.
 
 #### (3) Kaj je ortogonalna iteracija? Katero formo matrike izračunamo z ortogonalno iteracijo in kako iz nje razberemo lastne vrednosti?
 
-Ortogonalna iteracija je postopek, kjer izvajamo množenje matrike z blokom vektorjev, sledi QR razcep rezultata. Izračunamo formo \( Q_k \) (ortogonalna matrika) in \( R_k \) (zgornje trikotna matrika). Z iterativnim izvajanjem postopka \( Q \) konvergira k matriki, katere stolpci so lastni vektorji izhodiščne matrike, lastne vrednosti pa lahko ocenimo iz diagonalnih elementov \( R \).
+Ortogonalna iteracija je postopek, kjer izvajamo množenje matrike z blokom vektorjev, sledi QR razcep rezultata. Izračunamo formo $Q_k$ (ortogonalna matrika) in $R_k$ (zgornje trikotna matrika). Z iterativnim izvajanjem postopka $Q$ konvergira k matriki, katere stolpci so lastni vektorji izhodiščne matrike, lastne vrednosti pa lahko ocenimo iz diagonalnih elementov $R$.
 
 #### (4) Kaj je QR–iteracija z enojnim premikom? Kaj je cilj premika?
 
-QR-iteracija z enojnim premikom je varianta QR-iteracije, kjer pred vsakim korakom odštejemo premik \( \mu \) od matrike \( A \), torej delamo z \( A - \mu I \). Premik je zasnovan tako, da pospeši konvergenco metode proti želeni lastni vrednosti, še posebej tistim, ki so bližje \( \mu \).
+QR-iteracija z enojnim premikom je varianta QR-iteracije, kjer pred vsakim korakom odštejemo premik $\mu$ od matrike $A$, torej delamo z $A - \mu I$. Premik je zasnovan tako, da pospeši konvergenco metode proti želeni lastni vrednosti, še posebej tistim, ki so bližje $\mu$.
 
 #### (5) Kako učinkovito numerično izračunamo vse lastne vrednosti matrike? Kakšna je cena?
 
@@ -218,15 +225,15 @@ Vse lastne vrednosti matrike lahko izračunamo s kombinacijo tehnik, kot so QR-i
 
 ### 5. REŠEVANJE NELINEARNIH ENAČB
 
-#### (1) Opis bisekcije in število potrebnih korakov za natančnost \(10^{-10}\)
+#### (1) Opis bisekcije in število potrebnih korakov za natančnost $10^{-10}$
 
-Bisekcija je metoda za iskanje ničle funkcije, ki deluje tako, da iterativno polovi interval \([a, b\]), kjer funkcija spreminja predznak. Število korakov, potrebnih za dosego natančnosti \(10^{-10}\), izračunamo s formulom:
-\[ n = \lceil \log_2\left(\frac{b-a}{\epsilon}\right) \rceil \]
-kjer je \( \epsilon = 10^{-10} \).
+Bisekcija je metoda za iskanje ničle funkcije, ki deluje tako, da iterativno polovi interval $[a, b]$, kjer funkcija spreminja predznak. Število korakov, potrebnih za dosego natančnosti $10^{-10}$, izračunamo s formulom:
+$n = \lceil \log_2\left(\frac{b-a}{\epsilon}\right) \rceil$ kjer je $\epsilon = 10^{-10}$.
 
 #### (2) Zaustavitveni kriteriji za bisekcijo
 
-Ko je odvod funkcije na intervalu blizu 0, je smiselno uporabiti zaustavitveni kriterij, ki temelji na majhni spremembi intervala \([a, b]\), saj funkcija ničlo prečka počasi. Pri velikem odvodu je učinkoviteje uporabiti kriterij, ki temelji na majhnih spremembah vrednosti funkcije \(f(x)\), ker funkcija hitro spreminja vrednosti.
+Ko je odvod funkcije na intervalu blizu 0, je smiselno uporabiti zaustavitveni kriterij, ki temelji na majhni spremembi intervala $[a, b]$, saj funkcija ničlo prečka počasi. Pri velikem odvodu je učinkoviteje uporabiti kriterij, ki temelji na majhnih spremembah vrednosti funkcije $f(x)$, ker funkcija hitro spreminja vrednosti.
+
 
 #### (3) Red konvergence
 
@@ -235,20 +242,20 @@ Red konvergence opisuje, kako hitro se približki izbrane metode približujejo d
 #### (4) Tangentna metoda in njen red konvergence
 
 Tangentna metoda (Newtonova metoda) izračuna ničle z iteracijo:
-\[ x\_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \]
-Red konvergence te metode je kvadratičen (\(O(h^2)\)), kar pomeni, da se natančnost rešitve z vsako iteracijo kvadratično povečuje, če je začetni približek dovolj blizu prave ničle.
+$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
+Red konvergence te metode je kvadratičen $O(h^2)$, kar pomeni, da se natančnost rešitve z vsako iteracijo kvadratično povečuje, če je začetni približek dovolj blizu prave ničle.
 
 #### (5) Sekantna metoda in njen red konvergence
 
 Sekantna metoda je podobna tangentni metodi, vendar ne zahteva odvoda funkcije. Namesto tega uporablja dve začetni točki in izračuna:
-\[ x*{n+1} = x_n - f(x_n) \frac{x_n - x*{n-1}}{f(x*n) - f(x*{n-1})} \]
-Red konvergence sekantne metode je superlinearen, približno \(1.618\) (zlato razmerje), kar je hitrejše od linearne konvergence, vendar počasnejše od kvadratične.
+$x_{n+1} = x_n - f(x_n) \frac{x_n - x_{n-1}}{f(x_n) - f(x_{n-1})}$
+Red konvergence sekantne metode je superlinearen, približno $1.618$ (zlato razmerje), kar je hitrejše od linearne konvergence, vendar počasnejše od kvadratične.
 
 #### (6) Izpeljava in opis metode regula falsi
 
 Metoda regula falsi (metoda lažne pozicije) je iterativna tehnika za iskanje ničel funkcije, ki se podobno kot bisekcija osredotoča na interval, kjer funkcija spreminja predznak. Metoda uporablja linearno interpolacijo med končnima točkama intervala in izbere ničlo linearne interpolacije kot naslednji približek. Iteracija poteka po formuli:
-\[ x*{n+1} = x_n - f(x_n) \frac{x*{n} - x*{n-1}}{f(x_n) - f(x*{n-1})} \]
-kjer \( x*n \) in \( x*{n-1} \) sta zadnji dve oceni ničle.
+$x_{n+1} = x_n - f(x_n) \frac{x_{n} - x_{n-1}}{f(x_n) - f(x_{n-1})}$
+kjer $x_{n}$ in $x_{n-1}$ sta zadnji dve oceni ničle.
 
 #### (7) Fiksne točke iteracijske funkcije \( g \)
 
@@ -256,7 +263,7 @@ Fiksna točka funkcije \( g \) je vrednost \( x \), za katero velja \( g(x) = x 
 
 #### (8) Navadna iteracija za iskanje ničel funkcije \( f \)
 
-Navadna iteracija za iskanje ničle funkcije \( f \) lahko poteka s transformacijo \( x\_{n+1} = g(x_n) \), kjer je \( g(x) \) neka funkcija, izpeljana iz \( f \). Hitrost konvergence je:
+Navadna iteracija za iskanje ničle funkcije \( f \) lahko poteka s transformacijo \( x_{n+1} = g(x_n) \), kjer je \( g(x) \) neka funkcija, izpeljana iz \( f \). Hitrost konvergence je:
 
 - **Linearna**, če je \( |g'(x)| \) konstanta manjša od 1.
 - **Kvadratična**, če je \( g'(x) = 0 \) pri fiksni točki.
@@ -264,8 +271,8 @@ Navadna iteracija za iskanje ničle funkcije \( f \) lahko poteka s transformaci
 
 #### (9) Iteracijske metode za reševanje nelinearnih enačb
 
-Ena od priljubljenih metod je **Newtonova metoda** za reševanje nelinearnih enačb, ki iterativno izboljšuje približke z uporabo tangent k funkciji \( f \), izračunanih z odvodom \( f \). Formula za iteracijo je:
-\[ x\_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \]
+Ena od priljubljenih metod je **Newtonova metoda** za reševanje nelinearnih enačb, ki iterativno izboljšuje približke z uporabo tangent k funkciji \(f\), izračunanih z odvodom \(f\). Formula za iteracijo je:
+$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
 
 #### (10) Kvazi-Newtonove metode
 
@@ -284,18 +291,18 @@ Za interpolacijo 5 točk \( (x_i, y_i) \), i = 0, 1, ..., 4, potrebujemo polinom
 #### (2) Lagrangeova oblika interpolacijskega polinoma in njene pomanjkljivosti
 
 Lagrangeov interpolacijski polinom je definiran kot:
-\[ P(x) = \sum*{i=0}^n y_i \prod*{\substack{j=0 \\ j \neq i}}^n \frac{x - x_j}{x_i - x_j} \]
+$P(x) = \sum_{i=0}^n y_i \prod_{\substack{j=0 \\ j \neq i}}^n \frac{x - x_j}{x_i - x_j}$
 **Pomanjkljivosti:** Metoda je računsko zahtevna, saj za vsako spremembo točk ali dodajanje nove točke zahteva ponovno izračunavanje celotnega polinoma. Prav tako je občutljiva na numerične napake pri velikem številu točk.
 
 #### (3) Newtonova oblika interpolacijskega polinoma in deljene diference
 
 Newtonov interpolacijski polinom uporablja deljene diference in je zapisan kot:
-\[ P(x) = f[x_0] + f[x_0, x_1](x - x*0) + \ldots + f[x_0, x_1, \ldots, x_n](x - x_0)\ldots(x - x*{n-1}) \]
+$P(x) = f[x_0] + f[x_0, x_1](x - x_0) + \ldots + f[x_0, x_1, \ldots, x_n](x - x_0)\ldots(x - x_{n-1})$
 Deljene diference se izračunajo rekurzivno in so uporabne za dodajanje novih točk brez ponovnega izračuna celotnega polinoma. **Prednosti:** Večja fleksibilnost in manjša občutljivost na dodajanje točk v primerjavi z Lagrangeovo metodo.
 
 #### (4) Večkratne interpolacijske točke in njihov vpliv
 
-Večkratne interpolacijske točke omogočajo, da se polinom ujema ne samo z vrednostmi funkcije, ampak tudi z njenimi odvodi v danih točkah. Deljene diference, kot so \( f[x_0, x_0] \), predstavljajo odvode funkcije v točki \( x_0 \).
+Večkratne interpolacijske točke omogočajo, da se polinom ujema ne samo z vrednostmi funkcije, ampak tudi z njenimi odvodi v danih točkah. Deljene diference, kot so $( f[x_0, x_0] )$, predstavljajo odvode funkcije v točki $( x_0 )$.
 
 #### (5) Povečanje stopnje interpolacijskega polinoma in prileganje funkciji
 
@@ -303,9 +310,10 @@ Višanje stopnje interpolacijskega polinoma ne zagotavlja vedno boljšega prileg
 
 #### (6) Ocena napake interpolacijskega polinoma
 
-Napaka interpolacijskega polinoma \( P(x) \) za funkcijo \( f \) je določena z:
-\[ E(x) = f(x) - P(x) \]
-Napaka pri interpolaciji s polinomom stopnje \( n \) je odvisna od \( (n+1) \)-tega odvoda funkcije \( f \) in velikosti intervala, v katerem interpoliramo.
+Napaka interpolacijskega polinoma \(P(x)\) za funkcijo \(f\) je določena z:
+$E(x) = f(x) - P(x)$
+Napaka pri interpolaciji s polinomom stopnje \(n\) je odvisna od \( (n+1) \)-tega odvoda funkcije \(f\) in velikosti intervala, v katerem interpoliramo.
+
 
 #### (7) Gaussove kvadraturne formule
 
@@ -316,12 +324,12 @@ Gaussove kvadraturne formule so napredne metode za numerično integracijo, ki up
 #### (1) Osnovno trapezno in Simpsonovo pravilo ter njuni napaki
 
 **Osnovno trapezno pravilo** aproksimira integral funkcije tako, da izračuna površino trapeza, ki ga oblikujeta graf funkcije in x-os med dvema točkama. Formula je:
-\[ \int_a^b f(x) \, dx \approx \frac{b-a}{2} (f(a) + f(b)) \]
-Napaka tega pravila je \(O(h^3)\) za en korak, kjer je \(h = b-a\).
+$\int_a^b f(x) \, dx \approx \frac{b-a}{2} (f(a) + f(b))$
+Napaka tega pravila je \(O(h^3)\) za en korak, kjer je $h = b-a$.
 
 **Osnovno Simpsonovo pravilo** uporablja parabolično interpolacijo skozi tri točke za izračun integrala in je natančnejše. Formula je:
-\[ \int_a^b f(x) \, dx \approx \frac{b-a}{6} [f(a) + 4f\left(\frac{a+b}{2}\right) + f(b)] \]
-Napaka je \(O(h^5)\), kjer je \(h = b-a\).
+$\int_a^b f(x) \, dx \approx \frac{b-a}{6} [f(a) + 4f\left(\frac{a+b}{2}\right) + f(b)]$
+Napaka je \(O(h^5)\), kjer je %h = b-a%.
 
 #### (2) Sestavljeno trapezno in Simpsonovo pravilo
 
@@ -334,11 +342,11 @@ Red kvadraturne formule pomeni, da formula natančno izračuna integral polinomo
 
 #### (4) Določanje pravega koraka v trapeznem pravilu
 
-Pravi korak \(h\) v trapeznem pravilu določimo glede na želeno natančnost in lastnosti funkcije. Korak se lahko prilagodi na podlagi ocene napake, ki pove, kako hitro se spreminja funkcija \(f(x)\).
+Pravi korak $h$ v trapeznem pravilu določimo glede na želeno natančnost in lastnosti funkcije. Korak se lahko prilagodi na podlagi ocene napake, ki pove, kako hitro se spreminja funkcija $f(x)$.
 
 #### (5) Adaptivno trapezno pravilo
 
-Adaptivno trapezno pravilo samodejno prilagaja korak \(h\) med izračunom integrala za doseganje želene natančnosti. Pravilo oceni napako v trenutnem koraku in, če je napaka prevelika, zmanjša korak, če pa je napaka majhna, poveča korak za naslednje segmente, s čimer optimizira celotno računsko delo.
+Adaptivno trapezno pravilo samodejno prilagaja korak $h$ med izračunom integrala za doseganje želene natančnosti. Pravilo oceni napako v trenutnem koraku in, če je napaka prevelika, zmanjša korak, če pa je napaka majhna, poveča korak za naslednje segmente, s čimer optimizira celotno računsko delo.
 
 #### (6) Rombergova metoda
 
@@ -346,7 +354,7 @@ Rombergova metoda je tehnika za izboljšanje natančnosti numeričnih integracij
 
 **Primer uporabe:**
 
-1. Izračunaj integral z osnovnim trapeznim pravilom za korak \( h \).
+1. Izračunaj integral z osnovnim trapeznim pravilom za korak $h$.
 2. Polovi korak in ponovi izračun.
 3. Uporabi Richardsonovo ekstrapolacijo za izboljšanje ocene integrala.
 
@@ -357,40 +365,41 @@ Vozli v kvadraturnem pravilu so točke, v katerih funkcijo ovrednotimo, uteži p
 #### (8) Numerični izračun dvojnega integrala na pravokotniku
 
 Dvojni integral na pravokotniku se običajno izračuna z iteriranjem enodimenzionalnega integracijskega pravila (npr. trapeznega ali Simpsonovega) najprej v eni smeri in nato v drugi. Izračunamo:
-\[ \int*{a}^{b} \int*{c}^{d} f(x,y) \, dx \, dy \]
-kjer najprej integriramo po \( x \) za fiksni \( y \), nato rezultate integriramo po \( y \).
+$\int_{a}^{b} \int_{c}^{d} f(x,y) \, dx \, dy$
+kjer najprej integriramo po $x$ za fiksni $y$, nato rezultate integriramo po $y$.
 
 #### (9) Numerični izračun večkratnih integralov na poljubnem območju
 
-Za večkratne integrale na kompleksnih območjih se pogosto uporabljajo metode, kot so Monte Carlo ali adaptivne kvadraturne metode, ki se prilagajajo obliki območja. Napaka pri teh metodah je odvisna od števila uporabljenih točk in metode integracije. Računska zahtevnost za doseganje napake \( \epsilon \) narašča s kompleksnostjo območja in dimenzijo integrala.
+Za večkratne integrale na kompleksnih območjih se pogosto uporabljajo metode, kot so Monte Carlo ali adaptivne kvadraturne metode, ki se prilagajajo obliki območja. Napaka pri teh metodah je odvisna od števila uporabljenih točk in metode integracije. Računska zahtevnost za doseganje napake $( \epsilon \)$ narašča s kompleksnostjo območja in dimenzijo integrala.
 
 ### 8. REŠEVANJE DIFERENCIALNIH ENAČB
 
 #### (1) Eulerjeva metoda za reševanje začetnega problema
 
-Eulerjeva metoda je osnovna numerična metoda za reševanje diferencialnih enačb oblike \( y' = f(x, y) \) s začetnim pogojem \( y(a) = y*a \). Metoda napreduje z iterativnim izračunom:
-\[ y*{n+1} = y_n + h f(x_n, y_n) \]
-kjer \( h \) predstavlja korak, \( x_n \) je trenutna točka, in \( y_n \) trenutna vrednost rešitve.
+Eulerjeva metoda je osnovna numerična metoda za reševanje diferencialnih enačb oblike $y' = f(x, y)$ s začetnim pogojem 
+$y(a) = y_a$. Metoda napreduje z iterativnim izračunom:
+$y_{n+1} = y_n + h f(x_n, y_n)$
+kjer $h$ predstavlja korak, $x_n$ je trenutna točka, in $y_n$ trenutna vrednost rešitve.
 
 #### (2) Ideja Runge-Kutta metod in napaka
 
-Runge-Kutta metode izboljšajo Eulerjevo metodo s točnejšim izračunom sprememb \( y \) z uporabo več vmesnih korakov. Napaka metode reda \( k \) je \( O(h^{k+1}) \), kjer \( k \) predstavlja število stopenj metode (npr. pri RK4 je \( k = 4 \), zato napaka znaša \( O(h^5) \)).
+Runge-Kutta metode izboljšajo Eulerjevo metodo s točnejšim izračunom sprememb $y$ z uporabo več vmesnih korakov. Napaka metode reda $k$ je $O(h^{k+1})$, kjer $k$ predstavlja število stopenj metode (npr. pri RK4 je $k = 4$, zato napaka znaša $O(h^5)$ ).
 
 #### (3) Adaptivna metoda in DOPRI5
 
-Adaptivne metode prilagajajo velikost koraka \( h \) glede na lokalno napako rešitve. **DOPRI5** je priljubljena adaptivna Runge-Kutta metoda petega reda, ki dinamično prilagaja korak, da optimizira natančnost in učinkovitost. Ima vgrajen nadzor napake, ki omogoča natančnejše reševanje.
+Adaptivne metode prilagajajo velikost koraka $h$ glede na lokalno napako rešitve. **DOPRI5** je priljubljena adaptivna Runge-Kutta metoda petega reda, ki dinamično prilagaja korak, da optimizira natančnost in učinkovitost. Ima vgrajen nadzor napake, ki omogoča natančnejše reševanje.
 
 #### (4) Adams-Bashforthova metoda in napaka
 
-Adams-Bashforthove metode so eksplicitne večkorakne metode, ki uporabljajo pretekle vrednosti \( f(x, y) \) za napovedovanje novih vrednosti. Napaka metode reda \( k \) je \( O(h^k) \), kar pomeni, da več korakov vodi do večje natančnosti.
+Adams-Bashforthove metode so eksplicitne večkorakne metode, ki uporabljajo pretekle vrednosti $f(x, y)$ za napovedovanje novih vrednosti. Napaka metode reda $k$ je $O(h^k)$, kar pomeni, da več korakov vodi do večje natančnosti.
 
 #### (5) Adams-Moultonova metoda in napaka
 
-Adams-Moultonove metode so implicitne večkorakne metode, ki vključujejo trenutno in pretekle vrednosti \( f(x, y) \) za izračun \( y*{n+1} \). Napaka metode reda \( k \) je \( O(h^{k+1}) \). Metoda je implicitna, ker zahteva rešitev algebrske enačbe za \( y*{n+1} \) na vsakem koraku.
+Adams-Moultonove metode so implicitne večkorakne metode, ki vključujejo trenutno in pretekle vrednosti $f(x, y)$ za izračun $y_{n+1}$. Napaka metode reda $k$ je $O(h^{k+1})$. Metoda je implicitna, ker zahteva rešitev algebrske enačbe za $y_{n+1}$ na vsakem koraku.
 
 #### (6) ABM prediktor-korektor metoda in napaka
 
-ABM (Adams-Bashforth-Moulton) metoda kombinira prediktor (Adams-Bashforth) za inicialno oceno in korektor (Adams-Moulton) za končno prilagoditev. Napaka te kombinirane metode reda \( k \) je \( O(h^{k+1}) \).
+ABM (Adams-Bashforth-Moulton) metoda kombinira prediktor (Adams-Bashforth) za inicialno oceno in korektor (Adams-Moulton) za končno prilagoditev. Napaka te kombinirane metode reda $k$ je $O(h^{k+1})$.
 
 #### (7) Strelska metoda za reševanje robnih problemov
 
