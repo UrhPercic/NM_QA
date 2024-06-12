@@ -6,15 +6,45 @@ Strojni epsilon je najmanjša razlika med 1 in naslednjim večjim številom, ki 
 
 #### (2) Katere napake pri numeričnem računanju poznamo?
 
-Poznamo več vrst napak, vključno z zaokrožitvenimi napakami, napakami zaradi omejene natančnosti predstavitve števil, in algoritemskimi napakami, ki nastanejo zaradi neoptimalnih numeričnih metod.
+Poznamo več vrst napak, vključno z:
+- zaokrožitvenimi napakami
+- napakami zaradi omejene natančnosti predstavitve števil
+- algoritemskimi napakami, ki nastanejo zaradi neoptimalnih numeričnih metod.
 
 #### (3) Katere so osnovne računske operacije v IEEE in kateri dve operaciji sta problematični s stališča numerične matematike?
 
 Osnovne računske operacije po standardu IEEE vključujejo seštevanje, odštevanje, množenje, deljenje in korenenje. Problematični operaciji sta deljenje in odštevanje, še posebej, ko se deli ali odšteva zelo majhne številke, kar lahko vodi v izgubo natančnosti.
 
-#### (4)  Kaj je relativno direktno stabilna metoda in kaj relativno obratno stabilna metoda? Navedite primer metode, ki je relativno direktno in obratno stabilna in skicirajte dokaz. (Lahko za najmanjsi mozen primer.) Navedite primer metode, ki je relativno obratno, ne pa tudi direktno stabilno. (Lahko za najmanjsi mozen primer.)
+#### (4) Kaj je relativno direktno stabilna metoda in kaj relativno obratno stabilna metoda? Navedite primer metode, ki je relativno direktno in obratno stabilna in skicirajte dokaz. (Lahko za najmanjši možen primer.) Navedite primer metode, ki je relativno obratno, ne pa tudi direktno stabilno. (Lahko za najmanjši možen primer.)
 
-Relativno direktno stabilna metoda zagotavlja, da majhne spremembe v vhodnih podatkih povzročijo le majhne spremembe v izhodnih podatkih. Relativno obratno stabilna metoda zagotavlja, da so izhodni podatki natančni rešitvi malo spremenjenih vhodnih podatkov.
+**Relativno direktno stabilna metoda** zagotavlja, da majhne spremembe v vhodnih podatkih povzročijo le majhne spremembe v izhodnih podatkih. To pomeni, da je metoda občutljiva na napake v vhodnih podatkih, vendar jih ne povečuje.
+
+**Relativno obratno stabilna metoda** zagotavlja, da so izhodni podatki natančni rešitvi malo spremenjenih vhodnih podatkov. To pomeni, da metoda proizvaja rešitve, ki bi bile natančne za nekoliko drugačne vhodne podatke.
+
+### Primer metode, ki je relativno direktno in obratno stabilna:
+
+Gaussova eliminacija brez pivotiranja je primer metode, ki je tako relativno direktno kot obratno stabilna za diagonalo dominantne matrike. Skicirajmo dokaz:
+
+**Dokaz:**
+
+1. **Relativno direktno stabilna:**
+   Gaussova eliminacija brez pivotiranja za diagonalo dominantne matrike zagotavlja, da majhne spremembe v vhodnih podatkih (elementih matrike in desne strani) povzročijo le majhne spremembe v izhodnih podatkih (rešitvah).
+
+2. **Relativno obratno stabilna:**
+   Rešitev, ki jo dobimo z Gaussovo eliminacijo brez pivotiranja, je natančna za malo spremenjene vhodne podatke. To pomeni, da rešitev natančno ustreza sistemu, ki je malo spremenjen v primerjavi s prvotnim sistemom.
+
+### Primer metode, ki je relativno obratno, ne pa tudi direktno stabilna:
+
+Newtonova metoda za reševanje nelinearnih enačb je primer metode, ki je relativno obratno stabilna, ne pa tudi direktno stabilna.
+
+**Razlaga:**
+
+1. **Relativno obratno stabilna:**
+   Newtonova metoda zagotavlja, da so rešitve, ki jih dobimo, natančne za malo spremenjene vhodne podatke. Iteracije se prilagajajo tako, da konvergirajo k natančni rešitvi za rahlo spremenjene začetne pogoje.
+
+2. **Relativno direktno stabilna:**
+   Newtonova metoda ni nujno direktno stabilna, ker majhne napake v začetnih približkih lahko povzročijo velike spremembe v konvergenci in lahko metodo usmerijo stran od prave rešitve, še posebej pri slabo pogojenih enačbah.
+
 
 **Primer stabilne metode:** Metoda, ki je hkrati relativno direktno in obratno stabilna, je Gaussova eliminacija.
 **Primer nestabilne metode:** Metoda, ki je relativno obratno stabilna, a ni direktno stabilna, bi bila iterativna rešitev sistemov linearnih enačb, kjer lahko začetne napake hitro narastejo.
@@ -43,8 +73,7 @@ Splošen kvadraten sistem linearnih enačb zapisujemo kot $Ax = b$, kjer je:
 
 Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je približno $\frac{2}{3}n^3$ osnovnih računskih operacij za izvedbo.
 
-#### (3) Opisite elementarne eliminacije in razlozite, kako z njihovo pomocjo unicimo elemente v danem vektorju x. Kako izracunamo inverz elementarne eliminacije in kako izracunamo ˇ
-produkt dveh elementarnih eliminacij?
+#### (3) Opisite elementarne eliminacije in razlozite, kako z njihovo pomocjo unicimo elemente v danem vektorju x. Kako izracunamo inverz elementarne eliminacije in kako izracunamo produkt dveh elementarnih eliminacij?
 
 Elementarne eliminacije vključujejo vrstične operacije kot so zamenjava, množenje vrstice z skalarjem in dodajanje večkratnika ene vrstice k drugi, da se dosežejo ničle pod glavno diagonalo.
 
@@ -105,9 +134,37 @@ LU razcep s **kompletnim pivotiranjem** vključuje izbiro največjega elementa i
 
 Stabilnost reševanja zgornjetrikotnega sistema z **obratno substitucijo** je običajno visoka, saj postopek naravno preprečuje deljenje z zelo majhnimi števili, razen če je zgornjetrikotna matrika slabo pogojena. V primeru spodnjetrikotnih sistemov, kjer uporabimo premo substitucijo, je tudi stabilnost običajno dobra, razen v primerih slabo pogojenih matrik ali zelo majhnih diagonalnih elementov.
 
-#### (10) Kaj je pivotna rast? Kaj nam pivotna rast pove? Ali je pivotna rast pri delnem pivotiranju omejena? Ce da, skiciraj dokaz tega dejstva.
+#### (10) Kaj je pivotna rast? Kaj nam pivotna rast pove? Ali je pivotna rast pri delnem pivotiranju omejena? Če da, skiciraj dokaz tega dejstva.
 
-Pivotna rast je merilo za povečanje elementov matrike med LU razcepom s pivotiranjem. Pove nam, kako se največja absolutna vrednost elementov matrike spreminja med izvajanjem eliminacijskega procesa. Pri delnem pivotiranju je pivotna rast omejena, kar pomeni, da razcep ne poveča vrednosti elementov preko določene meje, zagotavljajoč numerično stabilnost.
+**Pivotna rast** je merilo za povečanje elementov matrike med LU razcepom s pivotiranjem. Pove nam, kako se največja absolutna vrednost elementov matrike spreminja med izvajanjem eliminacijskega procesa.
+
+Pivotna rast je definirana kot:
+$\rho = \frac{\max_{i,j} |u_{ij}|}{\max_{i,j} |a_{ij}|}$ kjer so $( u_{ij} )$ elementi zgornje trikotne matrike $U$ , pridobljene z LU razcepom, in $( a_{ij} )$ elementi izvirne matrike $A$.
+
+Pivotna rast nam pove, kako se vrednosti elementov matrike povečujejo med procesom eliminacije. Visoka pivotna rast lahko pomeni nestabilnost numerične metode, saj lahko majhne napake povzročijo velike spremembe v rešitvah.
+
+Pri delnem pivotiranju je pivotna rast omejena. To pomeni, da razcep ne poveča vrednosti elementov preko določene meje, kar zagotavlja numerično stabilnost.
+
+### Dokaz omejitve pivotne rasti pri delnem pivotiranju
+
+Delno pivotiranje pomeni, da pri vsakem koraku zamenjamo vrstico z največjim absolutnim elementom v stolpcu, ki ga trenutno obdelujemo. S tem zagotovimo, da elementi v zgornji trikotni matriki $U$ niso preveliki glede na elemente v izvirni matriki $A$.
+
+#### Skiciran dokaz:
+
+1. **Začetna matrika \( A \)**:
+   Elementi matrike \( A \) imajo maksimalno absolutno vrednost $( \max_{i,j} |a_{ij}| )$.
+
+2. **Delno pivotiranje**:
+   Pri delnem pivotiranju izberemo največji element v vsakem stolpcu za pivotiranje, kar pomeni, da se vrednosti v \( U \) ne morejo povečati preko vrednosti tega pivota.
+
+3. **Formiranje matrike \( U \)**:
+   Vrednosti v \( U \) so rezultat operacij, kjer so pivoti največji elementi v stolpcih, zato se absolutne vrednosti ne povečujejo drastično. S tem je zagotovljeno, da elementi v \( U \) ostanejo primerljivi z elementi v \( A \).
+
+4. **Omejitev pivotne rasti**:
+   Ker delno pivotiranje omejuje vrednosti elementov v \( U \), je pivotna rast omejena z nekim konstantnim faktorjem, odvisnim od dimenzije matrike in njenih začetnih vrednosti. To zagotavlja numerično stabilnost.
+
+Zaključimo lahko, da delno pivotiranje učinkovito omejuje pivotno rast, kar pomeni, da LU razcep s delnim pivotiranjem ostane numerično stabilen in ne vodi do nenadzorovanega povečanja vrednosti elementov matrike.
+
 
 #### (11) Kaj lahko poves o stabilnosti racunanja LU razcepa brez pivotiranja/z delnim pivotiranjem/s kompletnim pivotiranjem?
 
@@ -117,7 +174,7 @@ Pivotna rast je merilo za povečanje elementov matrike med LU razcepom s pivotir
 
 #### (12) Kaj je razcep Choleskega matrike in za katere matrike se razcep izvede? Kaksna je racunska zahtevnost in kaksna je stabilnost v primerjavi z LU razcepom.
 
-Razcep Choleskega se uporablja za simetrične, pozitivno definitne matrike, kjer matriko $A$ razdelimo na $A = LL^T$, kjer je $L$ spodnjetrikotna matrika. Ta razcep je običajno bolj stabilen in manj računsko zahteven v primerjavi z LU razcepom.
+Razcep Choleskega se uporablja za simetrične, pozitivno definitne matrike, kjer matriko $A$ razdelimo na $A = LL^T$, kjer je $L$ spodnjetrikotna matrika. Računska zahtevnost Choleskega razcepa je $O(n^3)$ . To pomeni, da za matriko velikosti $n \times n$ potrebujemo približno $\frac{1}{3}n^3$ osnovnih računskih operacij, kar je podobno kot pri LU razcepu brez pivotiranja. Ta razcep je običajno bolj stabilen in manj računsko zahteven v primerjavi z LU razcepom.
 
 
 #### (13) Kaj je vektorska norma? Navedite nekaj primerov vektorskih norm? Kaj je uporaba vektorskih norm v numericni matematiki?
@@ -227,7 +284,7 @@ Vse lastne vrednosti matrike lahko izračunamo s kombinacijo tehnik, kot so QR-i
 
 #### (1) Opis bisekcije in število potrebnih korakov za natančnost $10^{-10}$
 
-Bisekcija je metoda za iskanje ničle funkcije, ki deluje tako, da iterativno polovi interval $[a, b]$, kjer funkcija spreminja predznak. Število korakov, potrebnih za dosego natančnosti $10^{-10}$, izračunamo s formulom:
+Bisekcija je metoda za iskanje ničle funkcije, ki deluje tako, da iterativno polovi interval $[a, b]$, kjer funkcija spreminja predznak. Število korakov, potrebnih za dosego natančnosti $10^{-10}$, izračunamo s formulo:
 $n = \lceil \log_2\left(\frac{b-a}{\epsilon}\right) \rceil$ kjer je $\epsilon = 10^{-10}$.
 
 #### (2) Kaj je dobro vzeti za zaustavitveni kriterij bisekciji v primeru, ko je odvod funkcije na danem intervalu blizu 0? Kaj pa, ko je odvod relativno velik?
@@ -263,7 +320,7 @@ Fiksna točka funkcije \( g \) je vrednost \( x \), za katero velja \( g(x) = x 
 
 #### (8) Kako s postopkom navadne iteracije izracunamo nicle neke nelinearne funkcije \( f \) ? Kdaj je hitrost konvergence linearna, kvadraticna in kdaj kubicna? 
 
-Navadna iteracija za iskanje ničle funkcije \( f \) lahko poteka s transformacijo \( x_{n+1} = g(x_n) \), kjer je \( g(x) \) neka funkcija, izpeljana iz \( f \). Hitrost konvergence je:
+Navadna iteracija za iskanje ničle funkcije $f$ lahko poteka s transformacijo  $x_{n+1} = g(x_n)$ , kjer je $g(x)$ neka funkcija, izpeljana iz $f$ . Hitrost konvergence je:
 
 - **Linearna**, če je \( |g'(x)| \) konstanta manjša od 1.
 - **Kvadratična**, če je \( g'(x) = 0 \) pri fiksni točki.
@@ -271,11 +328,10 @@ Navadna iteracija za iskanje ničle funkcije \( f \) lahko poteka s transformaci
 
 #### (9) Kateri iteracijski metodi za resevanje sistema nelinearnih enacb poznas? Eno od njiju opisi.
 
-Ena od priljubljenih metod je **Newtonova metoda** za reševanje nelinearnih enačb, ki iterativno izboljšuje približke z uporabo tangent k funkciji \(f\), izračunanih z odvodom \(f\). Formula za iteracijo je:
+Ena od priljubljenih metod je **Newtonova metoda** za reševanje nelinearnih enačb, ki iterativno izboljšuje približke z uporabo tangent k funkciji $f$ , izračunanih z odvodom $f$ . Formula za iteracijo je:
 $x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
 
-#### (10) Kaj je ideja kvazi-Newtonovih metod za resevanje sistemov nelinearnih enacb? Eno od njih 
-natancneje opisi. 
+#### (10) Kaj je ideja kvazi-Newtonovih metod za resevanje sistemov nelinearnih enacb? Eno od njih natancneje opisi. 
 
 Kvazi-Newtonove metode so razred metod za reševanje nelinearnih enačb, ki poskušajo ohraniti prednosti Newtonove metode, vendar brez potrebe po natančnem izračunu drugega odvoda (Hessejeve matrike). **Metoda BFGS** je ena izmed teh, ki uporablja približke za inverz Hessejeve matrike za pospešitev konvergence.
 
@@ -285,8 +341,7 @@ Reševanje sistemov enačb je tesno povezano z optimizacijo, saj iskanje ničel 
 
 ### 6. POLINOMSKA INTERPOLACIJA IN APROKSIMACIJA
 
-#### (1) Zapisite sistem enacb, ki dolo ˇ ca interpolacijski polinom skozi paroma razlicne tocke $(x_i, y_i)$,
-i = 0, 1, . . . , n. Kaksno stopnjo polinoma moramo vzeti, ˇ ce ho ˇ cemo interpolirati 5 tock? Ali je resevanje tega sistema vedno stabilno? 
+#### (1) Zapisite sistem enacb, ki doloca interpolacijski polinom skozi paroma razlicne tocke $(x_i, y_i)$, i = 0, 1, . . . , n. Kaksno stopnjo polinoma moramo vzeti, ce hocemo interpolirati 5 tock? Ali je resevanje tega sistema vedno stabilno? 
 
 Za interpolacijo 5 točk \( (x_i, y_i) \), i = 0, 1, ..., 4, potrebujemo polinom četrte stopnje (stopnja \( n = 4 \)), saj je stopnja polinoma enaka številu točk minus ena. Sistem enačb, ki določa koeficiente polinoma, lahko postane nestabilen, še posebej pri visokih stopnjah in če so točke umeščene zelo blizu skupaj ali zelo enakomerno (npr. če opazimo Rungejev pojav).
 
@@ -316,7 +371,7 @@ Napaka interpolacijskega polinoma \(P(x)\) za funkcijo \(f\) je določena z:
 $E(x) = f(x) - P(x)$
 Napaka pri interpolaciji s polinomom stopnje \(n\) je odvisna od \( (n+1) \)-tega odvoda funkcije \(f\) in velikosti intervala, v katerem interpoliramo.
 
-#### (7) Kaj so Gaussove kvadraturne formule za izračun integrala \(\int_a^b f(x) \, dx\) funkcije \( f \) in kako jih učinkovito določimo?
+#### (7) Kaj so Gaussove kvadraturne formule za izračun integrala $\int_a^b f(x) \ dx$ funkcije \( f \) in kako jih učinkovito določimo?
 
 Gaussove kvadraturne formule so napredne metode za numerično integracijo, ki uporabljajo optimalno izbrane točke in uteži za izračun integralov. Te točke (vozli) in uteži
 
@@ -326,11 +381,11 @@ Gaussove kvadraturne formule so napredne metode za numerično integracijo, ki up
 
 **Osnovno trapezno pravilo** aproksimira integral funkcije tako, da izračuna površino trapeza, ki ga oblikujeta graf funkcije in x-os med dvema točkama. Formula je:
 $\int_a^b f(x) \, dx \approx \frac{b-a}{2} (f(a) + f(b))$
-Napaka tega pravila je \(O(h^3)\) za en korak, kjer je $h = b-a$.
+Napaka tega pravila je $O(h^3)$ za en korak, kjer je $h = b-a$.
 
 **Osnovno Simpsonovo pravilo** uporablja parabolično interpolacijo skozi tri točke za izračun integrala in je natančnejše. Formula je:
 $\int_a^b f(x) \, dx \approx \frac{b-a}{6} [f(a) + 4f\left(\frac{a+b}{2}\right) + f(b)]$
-Napaka je \(O(h^5)\), kjer je %h = b-a%.
+Napaka je $O(h^5)$, kjer je $h = b-a$.
 
 #### (2) Opisite sestavljeno trapezno in sestavljeno Simpsonovo pravilo.
 
@@ -398,7 +453,7 @@ Adams-Bashforthove metode so eksplicitne večkorakne metode, ki uporabljajo pret
 
 Adams-Moultonove metode so implicitne večkorakne metode, ki vključujejo trenutno in pretekle vrednosti $f(x, y)$ za izračun $y_{n+1}$. Napaka metode reda $k$ je $O(h^{k+1})$. Metoda je implicitna, ker zahteva rešitev algebrske enačbe za $y_{n+1}$ na vsakem koraku.
 
-#### (6) Opisite idejo ABM prediktor-koretkor metode za resevanje diferencialnih enacb. Koliko je napaka metode reda $k$ ?
+#### (6) Opisite idejo ABM prediktor-koretkor metode za resevanje diferencialnih enacb. Koliko je napaka metode reda $k$?
 
 ABM (Adams-Bashforth-Moulton) metoda kombinira prediktor (Adams-Bashforth) za inicialno oceno in korektor (Adams-Moulton) za končno prilagoditev. Napaka te kombinirane metode reda $k$ je $O(h^{k+1})$.
 
