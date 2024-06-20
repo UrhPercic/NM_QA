@@ -2,7 +2,7 @@
 
 #### (1) Kaj je strojni epsilon? Kaj je osnovna zaokrožitvena napaka?
 
-Strojni epsilon je najmanjša razlika med 1 in naslednjim večjim številom, ki ga lahko predstavi računalniški sistem. Osnovna zaokrožitvena napaka je napaka, ki nastane, ko se realna števila zaokrožijo na najbližje predstavljivo število v računalniškem formatu.
+Strojni epsilon je najmanjša razlika med 1 in naslednjim večjim številom, ki ga lahko računalnik predstavi. Osnovna zaokrožitvena napaka je napaka, ki nastane, ko se realna števila zaokrožijo na najbližje število, ki ga računalnik lahko prikaže.
 
 #### (2) Katere napake pri numeričnem računanju poznamo?
 
@@ -15,39 +15,24 @@ Poznamo več vrst napak, vključno z:
 
 Osnovne računske operacije po standardu IEEE vključujejo seštevanje, odštevanje, množenje, deljenje in korenenje. Problematični operaciji sta deljenje in odštevanje, še posebej, ko se deli ali odšteva zelo majhne številke, kar lahko vodi v izgubo natančnosti.
 
-#### (4) Kaj je relativno direktno stabilna metoda in kaj relativno obratno stabilna metoda? Navedite primer metode, ki je relativno direktno in obratno stabilna in skicirajte dokaz. (Lahko za najmanjši možen primer.) Navedite primer metode, ki je relativno obratno, ne pa tudi direktno stabilno. (Lahko za najmanjši možen primer.)
+#### (4) Kaj je relativno direktno stabilna metoda in kaj relativno obratno stabilna metoda? Navedite primer metode, ki je relativno direktno in obratno stabilna.
 
-**Relativno direktno stabilna metoda** zagotavlja, da majhne spremembe v vhodnih podatkih povzročijo le majhne spremembe v izhodnih podatkih. To pomeni, da je metoda občutljiva na napake v vhodnih podatkih, vendar jih ne povečuje.
+**Relativno direktno stabilna metoda** zagotavlja, da majhne spremembe v vhodnih podatkih povzročijo le majhne spremembe v izhodnih podatkih.
 
-**Relativno obratno stabilna metoda** zagotavlja, da so izhodni podatki natančni rešitvi malo spremenjenih vhodnih podatkov. To pomeni, da metoda proizvaja rešitve, ki bi bile natančne za nekoliko drugačne vhodne podatke.
+**Relativno obratno stabilna metoda** zagotavlja, da so izhodni podatki natančni rešitvi malo spremenjenih vhodnih podatkov.
 
 ### Primer metode, ki je relativno direktno in obratno stabilna:
 
-Gaussova eliminacija brez pivotiranja je primer metode, ki je tako relativno direktno kot obratno stabilna za diagonalo dominantne matrike. Skicirajmo dokaz:
+Gaussova eliminacija brez pivotiranja je primer metode, ki je tako relativno direktno kot obratno stabilna za diagonalo dominantne matrike.
 
 **Dokaz:**
 
 1. **Relativno direktno stabilna:**
-   Gaussova eliminacija brez pivotiranja za diagonalo dominantne matrike zagotavlja, da majhne spremembe v vhodnih podatkih (elementih matrike in desne strani) povzročijo le majhne spremembe v izhodnih podatkih (rešitvah).
+   Gaussova eliminacija brez pivotiranja za diagonalo dominantne matrike zagotavlja, da majhne spremembe v vhodnih podatkih povzročijo le majhne spremembe v izhodnih podatkih.
 
 2. **Relativno obratno stabilna:**
    Rešitev, ki jo dobimo z Gaussovo eliminacijo brez pivotiranja, je natančna za malo spremenjene vhodne podatke. To pomeni, da rešitev natančno ustreza sistemu, ki je malo spremenjen v primerjavi s prvotnim sistemom.
 
-### Primer metode, ki je relativno obratno, ne pa tudi direktno stabilna:
-
-Newtonova metoda za reševanje nelinearnih enačb je primer metode, ki je relativno obratno stabilna, ne pa tudi direktno stabilna.
-
-**Razlaga:**
-
-1. **Relativno obratno stabilna:**
-   Newtonova metoda zagotavlja, da so rešitve, ki jih dobimo, natančne za malo spremenjene vhodne podatke. Iteracije se prilagajajo tako, da konvergirajo k natančni rešitvi za rahlo spremenjene začetne pogoje.
-
-2. **Relativno direktno stabilna:**
-   Newtonova metoda ni nujno direktno stabilna, ker majhne napake v začetnih približkih lahko povzročijo velike spremembe v konvergenci in lahko metodo usmerijo stran od prave rešitve, še posebej pri slabo pogojenih enačbah.
-
-
-**Primer stabilne metode:** Metoda, ki je hkrati relativno direktno in obratno stabilna, je Gaussova eliminacija.
-**Primer nestabilne metode:** Metoda, ki je relativno obratno stabilna, a ni direktno stabilna, bi bila iterativna rešitev sistemov linearnih enačb, kjer lahko začetne napake hitro narastejo.
 
 ### 2. REŠEVANJE LINEARNIH SISTEMOV
 
@@ -59,6 +44,30 @@ Splošen kvadraten sistem linearnih enačb zapisujemo kot $Ax = b$, kjer je:
 - $x$ vektor neznank,
 - $b$ vektor konstant.
 
+Matrično obliko lahko zapišemo kot:
+
+```math
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_1 \\
+b_2 \\
+\vdots \\
+b_n
+\end{bmatrix}
+```
+
 **Resljivost:**
 
 - Sistem je **enolično rešljiv**, če je determinanta matrike $A$ neničelna.
@@ -69,9 +78,9 @@ Splošen kvadraten sistem linearnih enačb zapisujemo kot $Ax = b$, kjer je:
 - Produkt matrike z vektorjem zahteva $n^2$ operacij.
 - Produkt dveh matrik $n \times n$ zahteva $n^3$ operacij.
 
-#### (2) Kaj je Gaussova eliminacija in koliko osnovnih racunskih operacij je potrebnih za njeno izvedbo?
+#### (2) Kaj je Gaussova eliminacija in koliko osnovnih računskih operacij je potrebnih za njeno izvedbo?
 
-Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je približno $\frac{2}{3}n^3$ osnovnih računskih operacij za izvedbo.
+Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je približno $\frac{2n^3}{3}$ osnovnih računskih operacij za izvedbo, kar vključuje delitve, množenja in odštevanja. Tako ima metoda računsko zahtevnost $O(n^3)$.
 
 #### (3) Opisite elementarne eliminacije in razlozite, kako z njihovo pomocjo unicimo elemente v danem vektorju x. Kako izracunamo inverz elementarne eliminacije in kako izracunamo produkt dveh elementarnih eliminacij?
 
@@ -136,35 +145,17 @@ Stabilnost reševanja zgornjetrikotnega sistema z **obratno substitucijo** je ob
 
 #### (10) Kaj je pivotna rast? Kaj nam pivotna rast pove? Ali je pivotna rast pri delnem pivotiranju omejena? Če da, skiciraj dokaz tega dejstva.
 
-**Pivotna rast** je merilo za povečanje elementov matrike med LU razcepom s pivotiranjem. Pove nam, kako se največja absolutna vrednost elementov matrike spreminja med izvajanjem eliminacijskega procesa.
+#### (10) Kaj je pivotna rast? Kaj nam pivotna rast pove? Ali je pivotna rast pri delnem pivotiranju omejena? Če da, skiciraj dokaz tega dejstva.
 
-Pivotna rast je definirana kot:
-$\rho = \frac{\max_{i,j} |u_{ij}|}{\max_{i,j} |a_{ij}|}$ kjer so $( u_{ij} )$ elementi zgornje trikotne matrike $U$ , pridobljene z LU razcepom, in $( a_{ij} )$ elementi izvirne matrike $A$.
+**Pivotna rast** meri, kako se elementi matrike povečajo med LU razcepom s pivotiranjem. Visoka pivotna rast lahko pomeni nestabilnost metode.
 
-Pivotna rast nam pove, kako se vrednosti elementov matrike povečujejo med procesom eliminacije. Visoka pivotna rast lahko pomeni nestabilnost numerične metode, saj lahko majhne napake povzročijo velike spremembe v rešitvah.
+Pri delnem pivotiranju je pivotna rast omejena, saj vedno izberemo največji element v stolpcu za pivot, kar omeji vrednosti v zgornji trikotni matriki $U$.
 
-Pri delnem pivotiranju je pivotna rast omejena. To pomeni, da razcep ne poveča vrednosti elementov preko določene meje, kar zagotavlja numerično stabilnost.
+**Dokaz:**
+- **Delno pivotiranje**: Vedno zamenjamo vrstico z največjim elementom v trenutnem stolpcu, kar omeji rast elementov.
+- **Omejitev**: Elementi v $U$ ne postanejo večji od elementov v izvirni matriki $A$, kar zagotavlja stabilnost.
 
-### Dokaz omejitve pivotne rasti pri delnem pivotiranju
-
-Delno pivotiranje pomeni, da pri vsakem koraku zamenjamo vrstico z največjim absolutnim elementom v stolpcu, ki ga trenutno obdelujemo. S tem zagotovimo, da elementi v zgornji trikotni matriki $U$ niso preveliki glede na elemente v izvirni matriki $A$.
-
-#### Skiciran dokaz:
-
-1. **Začetna matrika \( A \)**:
-   Elementi matrike \( A \) imajo maksimalno absolutno vrednost $( \max_{i,j} |a_{ij}| )$.
-
-2. **Delno pivotiranje**:
-   Pri delnem pivotiranju izberemo največji element v vsakem stolpcu za pivotiranje, kar pomeni, da se vrednosti v \( U \) ne morejo povečati preko vrednosti tega pivota.
-
-3. **Formiranje matrike \( U \)**:
-   Vrednosti v \( U \) so rezultat operacij, kjer so pivoti največji elementi v stolpcih, zato se absolutne vrednosti ne povečujejo drastično. S tem je zagotovljeno, da elementi v \( U \) ostanejo primerljivi z elementi v \( A \).
-
-4. **Omejitev pivotne rasti**:
-   Ker delno pivotiranje omejuje vrednosti elementov v \( U \), je pivotna rast omejena z nekim konstantnim faktorjem, odvisnim od dimenzije matrike in njenih začetnih vrednosti. To zagotavlja numerično stabilnost.
-
-Zaključimo lahko, da delno pivotiranje učinkovito omejuje pivotno rast, kar pomeni, da LU razcep s delnim pivotiranjem ostane numerično stabilen in ne vodi do nenadzorovanega povečanja vrednosti elementov matrike.
-
+Zaključek: Delno pivotiranje omeji pivotno rast, kar pomeni, da LU razcep ostane stabilen.
 
 #### (11) Kaj lahko poves o stabilnosti racunanja LU razcepa brez pivotiranja/z delnim pivotiranjem/s kompletnim pivotiranjem?
 
