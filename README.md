@@ -80,7 +80,7 @@ b_n
 
 #### (2) Kaj je Gaussova eliminacija in koliko osnovnih računskih operacij je potrebnih za njeno izvedbo?
 
-Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je približno $\frac{2n^3}{3}$ osnovnih računskih operacij za izvedbo, kar vključuje delitve, množenja in odštevanja. Tako ima metoda računsko zahtevnost $O(n^3)$.
+Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je$O(n^3)$ osnovnih računskih operacij za izvedbo.
 
 #### (3) Opisite elementarne eliminacije in razlozite, kako z njihovo pomocjo unicimo elemente v danem vektorju x. Kako izracunamo inverz elementarne eliminacije in kako izracunamo produkt dveh elementarnih eliminacij?
 
@@ -93,7 +93,7 @@ Elementarne eliminacije vključujejo vrstične operacije kot so zamenjava, množ
 
 #### (4) Kaj je LU razcep matrike A (brez pivotiranja) in kako ga izracunamo? Koliko operacij je potrebnih za njegov izracun? Kdaj LU razcep brez pivotiranja obstaja? Napisite primer matrike, pri kateri se ne da izracunati LU razcepa brez pivotiranja.
 
-LU razcep brez pivotiranja razdeli matriko $A$ na produkt spodnje trikotne matrike $L$ in zgornje trikotne matrike $U$. Izračun zahteva približno $\frac{1}{3}n^3$ operacij. Obstaja, če so vsi glavni minori matrike $A$ neničelni.
+LU razcep brez pivotiranja razdeli matriko $A$ na produkt spodnje trikotne matrike $L$ in zgornje trikotne matrike $U$. Izračun zahteva približno $O(n^3)$ operacij. Obstaja, če so vsi glavni minori matrike $A$ neničelni.
 
 Primer, kjer LU razcep brez pivotiranja ni možen: Matrika:
 ```math
@@ -104,7 +104,6 @@ Primer, kjer LU razcep brez pivotiranja ni možen: Matrika:
 ```
 ne omogoča LU razcepa brez pivotiranja zaradi ničelnega elementa na mestu $a_{11}$.
 
-
 #### (5) Kaj je zgornjetrikoten sistem linearnih enacb? Kaj je prema in kaj obratna substitucija za zgornjetrikoten sistem? Koliko operacij zahtevata?
 
 Zgornjetrikoten sistem ima ničle pod glavno diagonalo matrike.
@@ -114,7 +113,7 @@ Zgornjetrikoten sistem ima ničle pod glavno diagonalo matrike.
 - **Premo substitucija** se ne uporablja; relevantna je le za spodnjetrikotne sisteme.
 - **Obratna substitucija** se uporablja za reševanje zgornjetrikotnega sistema, začenši z zadnjo enačbo.
 
-Potrebno je $\frac{n(n+1)}{2}$ operacij za reševanje zgornjetrikotnega sistema.
+Potrebno je $O(n^2)$ operacij za reševanje zgornjetrikotnega sistema.
 
 #### (6) Kako s pomocjo LU razcepa matrike A izracunamo resitev linearnega sistema enacb $Ax = b$ ? Koliko operacij zahteva?
 
@@ -123,7 +122,7 @@ Za reševanje sistema $Ax = b$ s pomočjo LU razcepa najprej razcepimo matriko $
 1. Rešimo $Ly = b$ za $y$ z uporabo premega vstavljanja.
 2. Rešimo $Ux = y$ za $x$ z uporabo obratnega vstavljanja.
 
-Za celoten postopek je potrebno $n^2$ operacij za vsako substitucijo, skupaj torej $2n^2$ operacij.
+$O(n^3)$ operacij za LU razcep. $O(n^2)$ operacij za rešitev sistemov $Ly = b$ in $Ux = y$. 
 
 #### (7) Kaj je LU razcep matrike A z delnim pivotiranjem? Zakaj ga uvedemo? Opisite postopek za njegov izracun. Kako s pomocjo tega razcepa izracunamo resitev linearnega sistema enacb $Ax = b$ ? Koliko operacij zahteva resevanje sistema $Ax = b$ prek LU razcepa z delnim pivotiranjem?
 
@@ -133,7 +132,7 @@ Za celoten postopek je potrebno $n^2$ operacij za vsako substitucijo, skupaj tor
 2. Zamenjamo trenutno vrstico z vrstico, ki vsebuje največji element.
 3. Nadaljujemo z razcepom kot pri standardnem LU razcepu.
 
-Za reševanje $Ax = b$ s to metodo najprej izračunamo $Ly = Pb$ (kjer je $P$ permutacijska matrika zaradi pivotiranja), nato rešimo $Ux = y$. Skupaj potrebujemo približno $\frac{2n^3}{3}$ operacij za razcep in $2n^2$ za substituciji.
+Za reševanje $Ax = b$ s to metodo najprej izračunamo $Ly = Pb$ (kjer je $P$ permutacijska matrika zaradi pivotiranja), nato rešimo $Ux = y$. Delno pivotiranje prinese dodatnih $O(n^2)$ operacij, ampak to bistveno ne vpliva na asimptotično časovno kompleksnost LU razcepa - $O(n^3)$
 
 #### (8) Kaj je LU razcep s kompletnim pivotiranjem in zakaj se v praksi ne uporablja?
 
@@ -142,8 +141,6 @@ LU razcep s **kompletnim pivotiranjem** vključuje izbiro največjega elementa i
 #### (9) Kaj lahko poves o stabilnosti resevanja zgornjetrikotnega sistema prek obratne/preme substitucije?
 
 Stabilnost reševanja zgornjetrikotnega sistema z **obratno substitucijo** je običajno visoka, saj postopek naravno preprečuje deljenje z zelo majhnimi števili, razen če je zgornjetrikotna matrika slabo pogojena. V primeru spodnjetrikotnih sistemov, kjer uporabimo premo substitucijo, je tudi stabilnost običajno dobra, razen v primerih slabo pogojenih matrik ali zelo majhnih diagonalnih elementov.
-
-#### (10) Kaj je pivotna rast? Kaj nam pivotna rast pove? Ali je pivotna rast pri delnem pivotiranju omejena? Če da, skiciraj dokaz tega dejstva.
 
 #### (10) Kaj je pivotna rast? Kaj nam pivotna rast pove? Ali je pivotna rast pri delnem pivotiranju omejena? Če da, skiciraj dokaz tega dejstva.
 
@@ -165,12 +162,12 @@ Zaključek: Delno pivotiranje omeji pivotno rast, kar pomeni, da LU razcep ostan
 
 #### (12) Kaj je razcep Choleskega matrike in za katere matrike se razcep izvede? Kaksna je racunska zahtevnost in kaksna je stabilnost v primerjavi z LU razcepom.
 
-Razcep Choleskega se uporablja za simetrične, pozitivno definitne matrike, kjer matriko $A$ razdelimo na $A = LL^T$, kjer je $L$ spodnjetrikotna matrika. Računska zahtevnost Choleskega razcepa je $O(n^3)$ . To pomeni, da za matriko velikosti $n \times n$ potrebujemo približno $\frac{1}{3}n^3$ osnovnih računskih operacij, kar je podobno kot pri LU razcepu brez pivotiranja. Ta razcep je običajno bolj stabilen in manj računsko zahteven v primerjavi z LU razcepom.
+Razcep Choleskega se uporablja za simetrične, pozitivno definitne matrike, kjer matriko $A$ razdelimo na $A = LL^T$, kjer je $L$ spodnjetrikotna matrika. Računska zahtevnost Choleskega razcepa je $O(n^3)$ . Ta razcep je običajno bolj stabilen in manj računsko zahteven v primerjavi z LU razcepom.
 
 
 #### (13) Kaj je vektorska norma? Navedite nekaj primerov vektorskih norm? Kaj je uporaba vektorskih norm v numericni matematiki?
 
-Vektorska norma meri velikost ali dolžino vektorja. Primeri:
+Vektorska norma je preslikava iz vektorja v množico realnih/kompleksnih števil. Primeri:
 
 - Evklidska norma $\|x\|_2$
 - Maksimalna norma $\|x\|_\infty$
@@ -192,7 +189,7 @@ Pogojenostno število matrike meri, kako vhodne napake vplivajo na izhodne rezul
 
 #### (16) Katere iterativne metode za resevanje linearnih sistemov poznas? Eno od njih podrobno opisi.
 
-Primer iterativne metode je **metoda konjugiranih gradientov**, ki se uporablja predvsem za reševanje velikih, redkih sistemov simetričnih, pozitivno definitnih matrik. Metoda izračuna rešitev z minimizacijo funkcije v obliki kvadratnega polinoma, pri čemer koristi lastnosti ortogonalnosti.
+Jacobi, Gauss-Seidel, SOR, SSOR, konjugirani gradienti. Primer iterativne metode je **metoda konjugiranih gradientov**, ki se uporablja predvsem za reševanje velikih, redkih sistemov simetričnih, pozitivno definitnih matrik. Metoda izračuna rešitev z minimizacijo funkcije v obliki kvadratnega polinoma, pri čemer koristi lastnosti ortogonalnosti.
 
 ### 3. PREDOLOČENI SISTEMI
 
