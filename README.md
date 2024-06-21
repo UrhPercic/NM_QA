@@ -7,9 +7,9 @@ Strojni epsilon je najmanjša razlika med 1 in naslednjim večjim številom, ki 
 #### (2) Katere napake pri numeričnem računanju poznamo?
 
 Poznamo več vrst napak, vključno z:
-- zaokrožitvenimi napakami
-- napakami zaradi omejene natančnosti predstavitve števil
-- algoritemskimi napakami, ki nastanejo zaradi neoptimalnih numeričnih metod.
+- zaokrožitvena napaka (računanje s približki in zaokroževanje), 
+- neodstranljiva napaka (nenatančni začetni podatki), 
+- napaka metode (npr. če neskončni proces aproksimiramo s končnim).
 
 #### (3) Katere so osnovne računske operacije v IEEE in kateri dve operaciji sta problematični s stališča numerične matematike?
 
