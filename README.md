@@ -33,7 +33,6 @@ Gaussova eliminacija brez pivotiranja je primer metode, ki je tako relativno dir
 2. **Relativno obratno stabilna:**
    Rešitev, ki jo dobimo z Gaussovo eliminacijo brez pivotiranja, je natančna za malo spremenjene vhodne podatke. To pomeni, da rešitev natančno ustreza sistemu, ki je malo spremenjen v primerjavi s prvotnim sistemom.
 
-
 ### 2. REŠEVANJE LINEARNIH SISTEMOV
 
 #### (1) Zapisite splosen kvadraten sistem linearnih enacb in ga prepisite v matricno obliko. Kdaj  je tak sistem resljiv/enolicno resljiv/ni resljiv? Koliko operacij je potrebnih za izracun produkta matrike z vektorjem? Kaj pa za produkt dveh matrik?
