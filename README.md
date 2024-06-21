@@ -2,7 +2,7 @@
 
 #### (1) Kaj je strojni epsilon? Kaj je osnovna zaokrožitvena napaka?
 
-Strojni epsilon je najmanjša razlika med 1 in naslednjim večjim številom, ki ga lahko računalnik predstavi. Osnovna zaokrožitvena napaka je napaka, ki nastane, ko se realna števila zaokrožijo na najbližje število, ki ga računalnik lahko prikaže.
+Strojni epsilon je najmanjša razlika med 1 in naslednjim večjim številom. Osnovna zaokrožitvena napaka je napaka, ki nastane, ko se realna števila zaokrožijo na najbližje število.
 
 #### (2) Katere napake pri numeričnem računanju poznamo?
 
@@ -80,7 +80,7 @@ b_n
 
 #### (2) Kaj je Gaussova eliminacija in koliko osnovnih računskih operacij je potrebnih za njeno izvedbo?
 
-Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je$O(n^3)$ osnovnih računskih operacij za izvedbo.
+Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je $O(n^3)$ osnovnih računskih operacij za izvedbo.
 
 #### (3) Opisite elementarne eliminacije in razlozite, kako z njihovo pomocjo unicimo elemente v danem vektorju x. Kako izracunamo inverz elementarne eliminacije in kako izracunamo produkt dveh elementarnih eliminacij?
 
@@ -179,6 +179,7 @@ Uporabljajo se za oceno velikosti napak, konvergenco algoritmov in stabilnost si
 
 Matrična norma, izpeljana iz vektorskih norm, ocenjuje velikost matrik. Primeri matričnih norm:
 
+- 1-norma
 - Frobeniusova norma
 - Spektralna norma
   Matrične norme so ključne pri analizi numerične stabilnosti algoritmov in ocenjevanju občutljivosti rešitev.
@@ -189,7 +190,13 @@ Pogojenostno število matrike meri, kako vhodne napake vplivajo na izhodne rezul
 
 #### (16) Katere iterativne metode za resevanje linearnih sistemov poznas? Eno od njih podrobno opisi.
 
-Jacobi, Gauss-Seidel, SOR, SSOR, konjugirani gradienti. Primer iterativne metode je **metoda konjugiranih gradientov**, ki se uporablja predvsem za reševanje velikih, redkih sistemov simetričnih, pozitivno definitnih matrik. Metoda izračuna rešitev z minimizacijo funkcije v obliki kvadratnega polinoma, pri čemer koristi lastnosti ortogonalnosti.
+- Jacobi
+- Gauss-Seidel
+- SOR
+- SSOR
+- konjugirani gradienti
+
+Primer iterativne metode je **metoda konjugiranih gradientov**, ki se uporablja predvsem za reševanje velikih, redkih sistemov simetričnih, pozitivno definitnih matrik. Metoda izračuna rešitev z minimizacijo funkcije v obliki kvadratnega polinoma, pri čemer koristi lastnosti ortogonalnosti.
 
 ### 3. PREDOLOČENI SISTEMI
 
@@ -302,16 +309,16 @@ Metoda regula falsi (metoda lažne pozicije) je iterativna tehnika za iskanje ni
 $x_{n+1} = x_n - f(x_n) \frac{x_{n} - x_{n-1}}{f(x_n) - f(x_{n-1})}$
 kjer $x_{n}$ in $x_{n-1}$ sta zadnji dve oceni ničle.
 
-#### (7) Naj bo \( g \) iteracijska funkcija. Kaj so fiksne tocke za g? Kdaj so privlacne, kdaj odbojne? 
+#### (7) Naj bo $g$ iteracijska funkcija. Kaj so fiksne tocke za $g$? Kdaj so privlacne, kdaj odbojne? 
 
-Fiksna točka funkcije \( g \) je vrednost \( x \), za katero velja \( g(x) = x \). Fiksne točke so **privlačne**, če je absolutna vrednost odvoda \( g' \) pri \( x \) manjša od 1 (\(|g'(x)| < 1\)), saj približki konvergirajo k fiksni točki. So **odbojne**, če je \( |g'(x)| > 1 \), kar povzroči divergenco od fiksne točke.
+Fiksna točka funkcije $g$ je vrednost $x$, za katero velja $g(x) = x$. Fiksne točke so **privlačne**, če je absolutna vrednost odvoda $g'$ pri $x$ manjša od 1 $|g'(x)| < 1$, saj približki konvergirajo k fiksni točki. So **odbojne**, če je $|g'(x)| > 1$, kar povzroči divergenco od fiksne točke.
 
-#### (8) Kako s postopkom navadne iteracije izracunamo nicle neke nelinearne funkcije \( f \) ? Kdaj je hitrost konvergence linearna, kvadraticna in kdaj kubicna? 
+#### (8) Kako s postopkom navadne iteracije izracunamo nicle neke nelinearne funkcije $f$ ? Kdaj je hitrost konvergence linearna, kvadraticna in kdaj kubicna? 
 
 Navadna iteracija za iskanje ničle funkcije $f$ lahko poteka s transformacijo  $x_{n+1} = g(x_n)$ , kjer je $g(x)$ neka funkcija, izpeljana iz $f$ . Hitrost konvergence je:
 
-- **Linearna**, če je \( |g'(x)| \) konstanta manjša od 1.
-- **Kvadratična**, če je \( g'(x) = 0 \) pri fiksni točki.
+- **Linearna**, če je $|g'(x)|$ konstanta manjša od 1.
+- **Kvadratična**, če je $g'(x) = 0$ pri fiksni točki.
 - **Kubična**, če so izpolnjeni pogoji višjih odvodov.
 
 #### (9) Kateri iteracijski metodi za resevanje sistema nelinearnih enacb poznas? Eno od njiju opisi.
@@ -331,12 +338,10 @@ Reševanje sistemov enačb je tesno povezano z optimizacijo, saj iskanje ničel 
 
 #### (1) Zapisite sistem enacb, ki doloca interpolacijski polinom skozi paroma razlicne tocke $(x_i, y_i)$, i = 0, 1, . . . , n. Kaksno stopnjo polinoma moramo vzeti, ce hocemo interpolirati 5 tock? Ali je resevanje tega sistema vedno stabilno? 
 
-Za interpolacijo 5 točk \( (x_i, y_i) \), i = 0, 1, ..., 4, potrebujemo polinom četrte stopnje (stopnja \( n = 4 \)), saj je stopnja polinoma enaka številu točk minus ena. Sistem enačb, ki določa koeficiente polinoma, lahko postane nestabilen, še posebej pri visokih stopnjah in če so točke umeščene zelo blizu skupaj ali zelo enakomerno (npr. če opazimo Rungejev pojav).
+Za interpolacijo 5 točk $(x_i, y_i)$, i = 0, 1, ..., 4, potrebujemo polinom četrte stopnje (stopnja $n = 4$), saj je stopnja polinoma enaka številu točk minus ena. Sistem enačb, ki določa koeficiente polinoma, lahko postane nestabilen, še posebej pri visokih stopnjah in če so točke umeščene zelo blizu skupaj ali zelo enakomerno (npr. če opazimo Rungejev pojav).
 
 #### (2) Lagrangeova oblika interpolacijskega polinoma in njene pomanjkljivosti
 
-Lagrangeov interpolacijski polinom je definiran kot:
-$P(x) = \sum_{i=0}^n y_i \prod_{\substack{j=0 \\ j \neq i}}^n \frac{x - x_j}{x_i - x_j}$
 **Pomanjkljivosti:** Metoda je računsko zahtevna, saj za vsako spremembo točk ali dodajanje nove točke zahteva ponovno izračunavanje celotnega polinoma. Prav tako je občutljiva na numerične napake pri velikem številu točk.
 
 #### (3) Opisite Newtonovo obliko interpolacijskega polinoma. Kaj so to deljene diference in kako jih racunamo? Kaksne so prednosti Newtonove oblike interpolacijskega polinoma v primerjavi z Lagrangeovo?
@@ -347,7 +352,7 @@ Deljene diference se izračunajo rekurzivno in so uporabne za dodajanje novih to
 
 #### (4) Kaj s stalisca interpolacije pomenijo veckratne interpolacijske tocke? Cemu so enake deljene diference $f[x_0, x_0]$ , $f[x_0, x_0, x_0]$ , $f[x_0, x_0, x_0, x_0]$ ? Zapisite interpolacijski polinom, ki se s funkcijo f ujema v tocki $x_0$ stirikratno, to je v vrednosti in v prvih treh odvodih.
 
-Večkratne interpolacijske točke omogočajo, da se polinom ujema ne samo z vrednostmi funkcije, ampak tudi z njenimi odvodi v danih točkah. Deljene diference, kot so $( f[x_0, x_0] )$, predstavljajo odvode funkcije v točki $( x_0 )$.
+Večkratne interpolacijske točke omogočajo, da se polinom ujema ne samo z vrednostmi funkcije, ampak tudi z njenimi odvodi v danih točkah. Deljene diference, kot so $f[x_0, x_0]$, predstavljajo odvode funkcije v točki $x_0$.
 
 #### (5) Povečanje stopnje interpolacijskega polinoma in prileganje funkciji? Utemelji s primerom?
 
@@ -355,9 +360,9 @@ Višanje stopnje interpolacijskega polinoma ne zagotavlja vedno boljšega prileg
 
 #### (6)  Kako lahko ocenimo napako interpolacijskega polinoma za funkcijo $f$ ? Kaksna je napaka interpolacije s polinomom stopnje $n$ .
 
-Napaka interpolacijskega polinoma \(P(x)\) za funkcijo \(f\) je določena z:
+Napaka interpolacijskega polinoma $P(x)$ za funkcijo $f$ je določena z:
 $E(x) = f(x) - P(x)$
-Napaka pri interpolaciji s polinomom stopnje \(n\) je odvisna od \( (n+1) \)-tega odvoda funkcije \(f\) in velikosti intervala, v katerem interpoliramo.
+Napaka pri interpolaciji s polinomom stopnje $n$ je odvisna od $(n+1)$ - tega odvoda funkcije $f$ in velikosti intervala, v katerem interpoliramo.
 
 #### (7) Kaj so Gaussove kvadraturne formule za izračun integrala $\int_a^b f(x) \ dx$ funkcije \( f \) in kako jih učinkovito določimo?
 
