@@ -110,7 +110,7 @@ Zgornjetrikoten sistem ima ničle pod glavno diagonalo matrike.
 **Substitucija:**
 
 - **Premo substitucija** se ne uporablja; relevantna je le za spodnjetrikotne sisteme.
-- **Obratna substitucija** se uporablja za reševanje zgornjetrikotnega sistema, začenši z zadnjo enačbo.
+- **Obratna substitucija** se uporablja za reševanje zgornjetrikotnega sistema. Začne se z zadnjo enačbo.
 
 Potrebno je $O(n^2)$ operacij za reševanje zgornjetrikotnega sistema.
 
