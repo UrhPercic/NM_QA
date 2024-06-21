@@ -181,7 +181,8 @@ Matrična norma, izpeljana iz vektorskih norm, ocenjuje velikost matrik. Primeri
 - 1-norma
 - Frobeniusova norma
 - Spektralna norma
-  Matrične norme so ključne pri analizi numerične stabilnosti algoritmov in ocenjevanju občutljivosti rešitev.
+
+Matrične norme so ključne pri analizi numerične stabilnosti algoritmov in ocenjevanju občutljivosti rešitev.
 
 #### (15) Kaj je pogojenostno stevilo matrike? Kako je pogojenostno stevilo povezano s stabilnostjo resevanja sistemov z eno od direktnih metod?
 
