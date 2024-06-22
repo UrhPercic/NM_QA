@@ -241,9 +241,10 @@ QR razcep je razgradnja matrike $A$ na produkt dveh matrik $Q$ in $R$, kjer je $
 $R x = Q^T b$
 Najprej izračunamo $Q^T b$, nato pa rešimo sistem $Rx = Q^T b$ z obratno substitucijo.
 
-#### (7) Kaj je klasicna Gram–Schmidtova ortogonalizacija in kaj je razlika med klasicno in modificirano Gram–Schmidtovo ortogonalizacijo?
+#### (7) Kaj je klasična Gram-Schmidtova ortogonalizacija in kaj je razlika med klasično in modificirano Gram-Schmidtovo ortogonalizacijo?
 
-**Klasična Gram-Schmidtova ortogonalizacija** je proces, pri katerem iz danega sistema vektorjev ustvarimo ortogonalni sistem s projekcijami vektorjev na ortogonalni komplement predhodno obravnavanih vektorjev. **Modificirana Gram-Schmidtova ortogonalizacija** izboljša numerično stabilnost klasične metode tako, da ortogonalizira vsak vektor z vsemi že ortogonaliziranimi vektorji takoj, ko je ta generiran, kar zmanjšuje akumulacijo numeričnih napak.
+**Klasična Gram-Schmidtova ortogonalizacija** je postopek, s katerim iz danih vektorjev ustvarimo ortogonalne vektorje. To naredimo tako, da vsak vektor projiciramo na ortogonalni komplement predhodno obravnavanih vektorjev.
+**Modificirana Gram-Schmidtova ortogonalizacija** izboljša natančnost tako, da ortogonalizira vsak vektor z vsemi že ortogonaliziranimi vektorji takoj, ko ga ustvarimo. S tem se zmanjšajo napake pri izračunu.
 
 #### (8) Kaj so Householderjeva zrcaljenja in kako s pomocjo njih izracunamo QR razcep matrike?
 
