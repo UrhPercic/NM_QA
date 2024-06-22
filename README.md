@@ -339,6 +339,31 @@ Reševanje sistemov enačb je tesno povezano z optimizacijo, saj iskanje ničel 
 
 #### (1) Zapisite sistem enacb, ki doloca interpolacijski polinom skozi paroma razlicne tocke $(x_i, y_i)$, i = 0, 1, . . . , n. Kaksno stopnjo polinoma moramo vzeti, ce hocemo interpolirati 5 tock? Ali je resevanje tega sistema vedno stabilno? 
 
+```math
+\begin{bmatrix}
+1 & x_0 & x_0^2 & x_0^3 & x_0^4 \\
+1 & x_1 & x_1^2 & x_1^3 & x_1^4 \\
+1 & x_2 & x_2^2 & x_2^3 & x_2^4 \\
+1 & x_3 & x_3^2 & x_3^3 & x_3^4 \\
+1 & x_4 & x_4^2 & x_4^3 & x_4^4
+\end{bmatrix}
+\begin{bmatrix}
+a_0 \\
+a_1 \\
+a_2 \\
+a_3 \\
+a_4
+\end{bmatrix}
+=
+\begin{bmatrix}
+y_0 \\
+y_1 \\
+y_2 \\
+y_3 \\
+y_4
+\end{bmatrix}
+```
+
 Za interpolacijo 5 točk $(x_i, y_i)$, i = 0, 1, ..., 4, potrebujemo polinom četrte stopnje (stopnja $n = 4$), saj je stopnja polinoma enaka številu točk minus ena. Sistem enačb, ki določa koeficiente polinoma, lahko postane nestabilen, še posebej pri visokih stopnjah in če so točke umeščene zelo blizu skupaj ali zelo enakomerno (npr. če opazimo Rungejev pojav).
 
 #### (2) Lagrangeova oblika interpolacijskega polinoma in njene pomanjkljivosti
