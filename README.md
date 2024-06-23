@@ -243,8 +243,9 @@ Najprej izračunamo $Q^T b$, nato pa rešimo sistem $Rx = Q^T b$ z obratno subst
 
 #### (7) Kaj je klasična Gram-Schmidtova ortogonalizacija in kaj je razlika med klasično in modificirano Gram-Schmidtovo ortogonalizacijo?
 
-**Klasična Gram-Schmidtova ortogonalizacija** je postopek, s katerim iz danih vektorjev ustvarimo ortogonalne vektorje. To naredimo tako, da vsak vektor projiciramo na ortogonalni komplement predhodno obravnavanih vektorjev.
-**Modificirana Gram-Schmidtova ortogonalizacija** izboljša natančnost tako, da ortogonalizira vsak vektor z vsemi že ortogonaliziranimi vektorji takoj, ko ga ustvarimo. S tem se zmanjšajo napake pri izračunu.
+Postopek, ki naredi stolpce matrike pravokotne drug na drugega. Začnemo s prvim stolpcem. Drugega dobimo tako, da odštejemo pravokotno projekcijo na prvega. Tretjega dobimo tako, da odštejemo pravokotni projekciji na prva dva... 
+Tako dobljene vektorje na koncu še normiramo. 
+Modificirana varianta je bolj numerično stabilna
 
 #### (8) Kaj so Householderjeva zrcaljenja in kako s pomocjo njih izracunamo QR razcep matrike?
 
