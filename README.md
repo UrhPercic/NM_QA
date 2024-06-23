@@ -325,12 +325,14 @@ Navadna iteracija za iskanje ničle funkcije $f$ lahko poteka s transformacijo  
 
 #### (9) Kateri iteracijski metodi za resevanje sistema nelinearnih enacb poznas? Eno od njiju opisi.
 
+Jacobijeva iteracija in Newtonova metoda. 
+
 Ena od priljubljenih metod je **Newtonova metoda** za reševanje nelinearnih enačb, ki iterativno izboljšuje približke z uporabo tangent k funkciji $f$ , izračunanih z odvodom $f$ . Formula za iteracijo je:
 $x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
 
 #### (10) Kaj je ideja kvazi-Newtonovih metod za resevanje sistemov nelinearnih enacb? Eno od njih natancneje opisi. 
 
-Kvazi-Newtonove metode so razred metod za reševanje nelinearnih enačb, ki poskušajo ohraniti prednosti Newtonove metode, vendar brez potrebe po natančnem izračunu drugega odvoda (Hessejeve matrike). **Metoda BFGS** je ena izmed teh, ki uporablja približke za inverz Hessejeve matrike za pospešitev konvergence.
+Pri velikem številu enačb je Newtonova metoda zelo zahtevna zaradi računanja veliko odvodov. Pri kvazi-Newtonovih metodah se izognemo računanju parcialnih odvodov. Najbolj znana je Broydenova metoda. 
 
 #### (11) Opisi povezavo med resevanjem sistemov enacb in optimizacijo.
 
