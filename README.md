@@ -13,7 +13,11 @@ Poznamo več vrst napak, vključno z:
 
 #### (3) Katere so osnovne računske operacije v IEEE in kateri dve operaciji sta problematični s stališča numerične matematike?
 
-Osnovne računske operacije po standardu IEEE vključujejo seštevanje, odštevanje, množenje, deljenje in korenenje. Problematični operaciji sta deljenje in odštevanje, še posebej, ko se deli ali odšteva zelo majhne številke, kar lahko vodi v izgubo natančnosti.
+Seštevanje, odštevanje, množenje in deljenje. Problematični sta seštevanje in odštevanje pri številih, ki sta različno predznačena, a imata približno enaki absolutni vrednosti. 
+- $c=a−(a−b)$ problematično
+- $c=(a−a)+b$ ni problematično. 
+
+Pri množenju se napake seštevajo, pri deljenju pa odštevajo. 
 
 #### (4) Kaj je relativno direktno stabilna metoda in kaj relativno obratno stabilna metoda? Navedite primer metode, ki je relativno direktno in obratno stabilna.
 
