@@ -2,14 +2,19 @@
 
 #### (1) Kaj je strojni epsilon? Kaj je osnovna zaokrožitvena napaka?
 
-Strojni epsilon je najmanjša razlika med 1 in naslednjim večjim številom. Osnovna zaokrožitvena napaka je napaka, ki nastane, ko se realna števila zaokrožijo na najbližje število.
+Relativna zaokrozitvena napaka δ je vedno omejena, njena natancna zgornja
+meja je odvisna od racunalnika. Navadno jo oznacujemo z ε in jo imenujemo
+osnovna zaokrozitvena napaka ali strojni epsilon
 
 #### (2) Katere napake pri numeričnem računanju poznamo?
 
 Poznamo več vrst napak, vključno z:
-- zaokrožitvena napaka (računanje s približki in zaokroževanje), 
-- neodstranljiva napaka (nenatančni začetni podatki), 
-- napaka metode (npr. če neskončni proces aproksimiramo s končnim).
+- Napake v matematičnem modelu: Ko matematični model ne popolnoma opisuje fizično realnost.
+- Človeški faktor: Napake zaradi napačnega programiranja ali napačnih vnosov.
+- Napake v računalniku: Napake strojne opreme, kot so napake v procesorju.
+- Nenatančni podatki: Napake, ki izvirajo iz meritev ali predhodnih izračunov.
+- Zaokrožitvene napake: Napake, ki nastanejo zaradi omejene natančnosti shranjevanja števil v računalniku.
+- Napake metod: Napake, ki nastanejo pri aproksimaciji neskončnih procesov s končnim številom operacij .
 
 #### (3) Katere so osnovne računske operacije v IEEE in kateri dve operaciji sta problematični s stališča numerične matematike?
 
