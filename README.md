@@ -9,12 +9,9 @@ osnovna zaokrozitvena napaka ali strojni epsilon
 #### (2) Katere napake pri numeričnem računanju poznamo?
 
 Poznamo več vrst napak, vključno z:
-- Napake v matematičnem modelu: Ko matematični model ne popolnoma opisuje fizično realnost.
-- Človeški faktor: Napake zaradi napačnega programiranja ali napačnih vnosov.
-- Napake v računalniku: Napake strojne opreme, kot so napake v procesorju.
-- Nenatančni podatki: Napake, ki izvirajo iz meritev ali predhodnih izračunov.
-- Zaokrožitvene napake: Napake, ki nastanejo zaradi omejene natančnosti shranjevanja števil v računalniku.
-- Napake metod: Napake, ki nastanejo pri aproksimaciji neskončnih procesov s končnim številom operacij .
+- Neodstranljiva napaka (npr. pri transcendentnih številih i guess) 
+- Napaka metode (Neskončni proces aproksimiramo s končnim h)
+- Zaokrožitvena napaka (Posledica zaokrožanja oz. rezanja števil) 
 
 #### (3) Katere so osnovne računske operacije v IEEE in kateri dve operaciji sta problematični s stališča numerične matematike?
 
