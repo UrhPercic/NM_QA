@@ -275,7 +275,7 @@ QR-iteracija z enojnim premikom je varianta QR-iteracije, kjer pred vsakim korak
 
 #### (5) Kako učinkovito numerično izračunamo vse lastne vrednosti matrike? Kakšna je cena?
 
-Vse lastne vrednosti matrike lahko izračunamo s kombinacijo tehnik, kot so QR-iteracija, spektralna dekompozicija ali singularna vrednostna dekompozicija. Učinkovitost teh metod je odvisna od velikosti in lastnosti matrike, kot so redkost ali simetrija. Računska zahtevnost raste s povečevanjem velikosti matrike in želene natančnosti rezultatov.
+Matriko pretvorimo v zgornjo Hessenbergovo (v $O(n^3)$ ) s pomočjo Householderjevih zracaljenj. Vse vmesne matrike in končna (zgornja Hessenbergova) imajo enake lastne vrednosti. Nato z Givensovimi rotacijami naredimo QR razcep zgornje Hessenbergove matrike. To se da v $O(n^2)$ . Potem so na diagonali matrike R iskane lastne vrednosti. Cena celotnega postopka je $O(n^3)$ .
 
 ### 5. REŠEVANJE NELINEARNIH ENAČB
 
