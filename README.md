@@ -79,7 +79,7 @@ b_n
 
 #### (2) Kaj je Gaussova eliminacija in koliko osnovnih računskih operacij je potrebnih za njeno izvedbo?
 
-Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je $O(n^3)$ osnovnih računskih operacij za izvedbo.
+Gaussova eliminacija je metoda za reševanje sistemov linearnih enačb z reduciranjem matrike na zgornje trikotno obliko. Potrebno je $O(n^3)$ osnovnih računskih operacij za izvedbo. Časovna zahtevnost metode je: $\frac{2n^3}{3}$ .
 
 #### (3) Opisite elementarne eliminacije in razlozite, kako z njihovo pomocjo unicimo elemente v danem vektorju x. Kako izracunamo inverz elementarne eliminacije in kako izracunamo produkt dveh elementarnih eliminacij?
 
