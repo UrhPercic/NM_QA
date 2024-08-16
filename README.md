@@ -25,19 +25,13 @@ Pri množenju se napake seštevajo, pri deljenju pa odštevajo.
 
 **Relativno direktno stabilna metoda** zagotavlja, da majhne spremembe v vhodnih podatkih povzročijo le majhne spremembe v izhodnih podatkih.
 
-**Relativno obratno stabilna metoda** zagotavlja, da so izhodni podatki natančni rešitvi malo spremenjenih vhodnih podatkov.
+Če je relativna napaka med x in x^ majhna, potem je metoda relativno obratno stabilna.
+Relativno obratno stabilna metoda zagotavlja, da so izhodni podatki blizu pravi vrednosti.
 
-### Primer metode, ki je relativno direktno in obratno stabilna:
+Direktno in obratno stabilna metoda je QR razcep matrike.
+LU razcep matrike je obratno stabilna metoda za linearne sisteme.
 
-Gaussova eliminacija brez pivotiranja je primer metode, ki je tako relativno direktno kot obratno stabilna za diagonalo dominantne matrike.
-
-**Dokaz:**
-
-1. **Relativno direktno stabilna:**
-   Gaussova eliminacija brez pivotiranja za diagonalo dominantne matrike zagotavlja, da majhne spremembe v vhodnih podatkih povzročijo le majhne spremembe v izhodnih podatkih.
-
-2. **Relativno obratno stabilna:**
-   Rešitev, ki jo dobimo z Gaussovo eliminacijo brez pivotiranja, je natančna za malo spremenjene vhodne podatke. To pomeni, da rešitev natančno ustreza sistemu, ki je malo spremenjen v primerjavi s prvotnim sistemom.
+Gaussova eliminacija brez pivotiranja je primer metode, ki je tako relativno direktno kot obratno stabilna za diagonalno-dominantne matrike.
 
 ### 2. REŠEVANJE LINEARNIH SISTEMOV
 
