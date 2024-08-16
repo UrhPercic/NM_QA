@@ -282,7 +282,7 @@ Matriko pretvorimo v zgornjo Hessenbergovo (v $O(n^3)$ ) s pomočjo Householderj
 #### (1) Opis bisekcije in število potrebnih korakov za natančnost $10^{-10}$
 
 Bisekcija je metoda za iskanje ničle funkcije, ki deluje tako, da iterativno polovi interval $[a, b]$, kjer funkcija spreminja predznak. Število korakov, potrebnih za dosego natančnosti $10^{-10}$, izračunamo s formulo:
-$n = \lceil \log_2\left(\frac{b-a}{\epsilon}\right) \rceil$ kjer je $\epsilon = 10^{-10}$.
+$n = \log_2\left(\frac{b-a}{\epsilon_x}\right) + 1$ kjer je $\epsilon = 10^{-10}$.
 
 #### (2) Kaj je dobro vzeti za zaustavitveni kriterij bisekciji v primeru, ko je odvod funkcije na danem intervalu blizu 0? Kaj pa, ko je odvod relativno velik?
 
